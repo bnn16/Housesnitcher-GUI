@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.HomeTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpHomepage = new System.Windows.Forms.TabPage();
+            this.tpSelf = new System.Windows.Forms.TabPage();
             this.HomeTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // HomeTabControl
             // 
-            this.HomeTabControl.Controls.Add(this.tabPage1);
-            this.HomeTabControl.Controls.Add(this.tabPage2);
+            this.HomeTabControl.Controls.Add(this.tpHomepage);
+            this.HomeTabControl.Controls.Add(this.tpSelf);
             this.HomeTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HomeTabControl.Location = new System.Drawing.Point(0, 0);
             this.HomeTabControl.Name = "HomeTabControl";
@@ -45,25 +45,25 @@
             this.HomeTabControl.Size = new System.Drawing.Size(1013, 601);
             this.HomeTabControl.TabIndex = 0;
             // 
-            // tabPage1
+            // tpHomepage
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1005, 573);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpHomepage.Location = new System.Drawing.Point(4, 24);
+            this.tpHomepage.Name = "tpHomepage";
+            this.tpHomepage.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHomepage.Size = new System.Drawing.Size(1005, 573);
+            this.tpHomepage.TabIndex = 0;
+            this.tpHomepage.Text = "Homepage";
+            this.tpHomepage.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tpSelf
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 72);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpSelf.Location = new System.Drawing.Point(4, 24);
+            this.tpSelf.Name = "tpSelf";
+            this.tpSelf.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSelf.Size = new System.Drawing.Size(1005, 573);
+            this.tpSelf.TabIndex = 1;
+            this.tpSelf.Text = "Self";
+            this.tpSelf.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -81,7 +81,7 @@
         #endregion
 
         private TabControl HomeTabControl;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage tpHomepage;
+        private TabPage tpSelf;
     }
 }
