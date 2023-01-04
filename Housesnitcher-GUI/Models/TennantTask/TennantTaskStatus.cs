@@ -1,6 +1,6 @@
 ﻿namespace Housesnitcher_GUI.Models
 {
-    public enum TaskStatus
+    public enum TennantTaskStatus
     {
         Assigned,
         Completed,

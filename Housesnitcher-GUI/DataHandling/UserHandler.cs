@@ -12,11 +12,7 @@ namespace Housesnitcher_GUI.DataHandling
             {
                 return false;
             }
-            UserStore.Users.Add(new User
-            {
-                Username = username,
-                Password = BCrypt.Net.BCrypt.HashPassword(unhashedPassword)
-            });
+            UserStore.Users.Add(new User(username, unhashedPassword));
             return true;
         }
 
