@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.3.32825.248
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Housesnitcher-GUI", "Housesnitcher-GUI\Housesnitcher-GUI.csproj", "{C1CA2104-FB20-4981-A3F1-2EEA876F59F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Housesnitcher-GUI", "Housesnitcher-GUI\Housesnitcher-GUI.csproj", "{06044F2F-B530-458E-AE11-846F08CBD11B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1CA2104-FB20-4981-A3F1-2EEA876F59F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1CA2104-FB20-4981-A3F1-2EEA876F59F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1CA2104-FB20-4981-A3F1-2EEA876F59F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1CA2104-FB20-4981-A3F1-2EEA876F59F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06044F2F-B530-458E-AE11-846F08CBD11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06044F2F-B530-458E-AE11-846F08CBD11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06044F2F-B530-458E-AE11-846F08CBD11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06044F2F-B530-458E-AE11-846F08CBD11B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9C7B8639-52A6-4393-B1B9-6395F5B715B4}
+		SolutionGuid = {DE125B69-D54D-4B5D-8B24-EFDE1821270D}
 	EndGlobalSection
 EndGlobal
