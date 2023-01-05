@@ -6,55 +6,54 @@ namespace Housesnitcher_GUI.DataHandling
 {
     public static class ComplaintHandler
     {
-        public static bool LodgeComplaint(Complaint complaint)
+        public static Complaint? LodgeComplaint(Complaint complaint)
         {
             // membership check, we dont like duplicates
             if (ComplaintStore.Complaints.Contains(complaint))
             {
-                return false;
+                return null;
             }
             ComplaintStore.Complaints.Add(complaint);
-            return true;
+            return complaint;
         }
-        public static bool AcknowledgeComplaint(Complaint complaint)
+        public static Complaint? AcknowledgeComplaint(Complaint complaint)
         {
             if (complaint.Status != ComplaintStatus.Created)
             {
-                return false;
+                return null;
             }
-            BumpStatus(complaint);
-            return true;
+            return BumpStatus(complaint);
         }
         // you want to definitely update the form after using this method.
-        public static bool ReviewComplaint(Complaint complaint, string feedback)
+        public static Complaint? ReviewComplaint(Complaint complaint, string feedback)
         {
             if (complaint.Status != ComplaintStatus.Acknowledged)
             {
-                return false;
+                return null;
             }
             complaint.ComplaintFeedback = feedback;
-            BumpStatus(complaint);
-            return true;
+            return BumpStatus(complaint);
         }
-        public static bool ResolveComplaint(Complaint complaint)
+        public static Complaint? ResolveComplaint(Complaint complaint)
         {
             if (complaint.Status != ComplaintStatus.Reviewed)
             {
-                return false;
+                return null;
             }
-            BumpStatus(complaint);
-            return true;
+            return BumpStatus(complaint);
         }
         // complaint is trash, spam, doesn't conform to the guidelines, or whatever.
-        public static void FailComplaint(Complaint complaint)
+        public static Complaint? FailComplaint(Complaint complaint)
         {
             var idx = ComplaintStore.Complaints.FindIndex(x => x == complaint);
             ComplaintStore.Complaints[idx].Status = ComplaintStatus.Failed;
+            return ComplaintStore.Complaints[idx];
         }
-        private static void BumpStatus(Complaint complaint)
+        private static Complaint? BumpStatus(Complaint complaint)
         {
             var idx = ComplaintStore.Complaints.FindIndex(x => x == complaint);
             ComplaintStore.Complaints[idx].Status++;
+            return ComplaintStore.Complaints[idx];
         }
     }
 }
