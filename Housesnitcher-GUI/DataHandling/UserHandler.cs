@@ -16,19 +16,19 @@ namespace Housesnitcher_GUI.DataHandling
             return true;
         }
 
-        public static bool LogIn(string username, string password)
+        public static User? LogIn(string username, string password)
         {
             var user = UserStore.Users.Find(x => x.Username == username);
             if (user == null)
             {
-                return false;
+                return null;
             }
 
             if (BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                return true;
+                return user;
             }
-            return false;
+            return null;
         }
     }
 }
