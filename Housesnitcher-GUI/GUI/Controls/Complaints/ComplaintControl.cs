@@ -68,7 +68,7 @@ namespace Housesnitcher_GUI.GUI.Controls
         }
         private void PaintColor(ComplaintStatus status)
         {
-            Color color = status switch
+            lblStatus.ForeColor = status switch
             {
                 ComplaintStatus.Failed => Color.Red,
                 ComplaintStatus.Created => Color.Black,
@@ -77,7 +77,6 @@ namespace Housesnitcher_GUI.GUI.Controls
                 ComplaintStatus.Resolved => Color.Green,
                 _ => Color.Aqua,
             };
-            lblStatus.ForeColor = color;
         }
     }
 }
