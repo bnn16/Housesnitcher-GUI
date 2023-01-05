@@ -4,6 +4,18 @@ namespace Housesnitcher_GUI.GUI.Controls
 {
     public partial class ComplaintControl : UserControl
     {
+        private Complaint? _complaint = null;
+        public Complaint StoredComplaint
+        {
+            get
+            {
+                return _complaint;
+            }
+            set
+            {
+                _complaint = value;
+            }
+        }
         public DateTime Date
         {
             get
@@ -48,6 +60,7 @@ namespace Housesnitcher_GUI.GUI.Controls
         {
             set
             {
+                _complaint = value;
                 lblDate.Text = value.DateCreated.ToString();
                 lblDateReference.Text = value.DateHappened.ToString();
                 lblStatus.Text = value.Status.ToString();
@@ -56,8 +69,15 @@ namespace Housesnitcher_GUI.GUI.Controls
                 PaintColor(value.Status);
             }
         }
+
+        // when using the default constructor, make sure to set the values using the `UpdateUsingObject` property.
+        public ComplaintControl()
+        {
+            InitializeComponent();
+        }
         public ComplaintControl(Complaint complaint)
         {
+            _complaint = complaint;
             InitializeComponent();
             lblDate.Text = complaint.DateCreated.ToString();
             lblDateReference.Text = complaint.DateHappened.ToString();
