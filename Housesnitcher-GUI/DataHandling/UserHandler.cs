@@ -1,6 +1,5 @@
 ﻿using Housesnitcher_GUI.DataStorageAbstractions;
 using Housesnitcher_GUI.Models;
-using BCrypt.Net;
 
 namespace Housesnitcher_GUI.DataHandling
 {

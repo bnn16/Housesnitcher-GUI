@@ -1,4 +1,4 @@
-﻿namespace Housesnitcher_GUI.GUI
+﻿namespace Housesnitcher_GUI.GUI.Forms
 {
     partial class MainForm
     {

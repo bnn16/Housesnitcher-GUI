@@ -1,4 +1,4 @@
-using Housesnitcher_GUI.GUI;
+using Housesnitcher_GUI.GUI.Forms;
 
 namespace Housesnitcher_GUI
 {

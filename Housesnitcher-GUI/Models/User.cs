@@ -1,6 +1,4 @@
-﻿using BCrypt.Net;
-
-namespace Housesnitcher_GUI.Models
+﻿namespace Housesnitcher_GUI.Models
 {
     public class User
     {

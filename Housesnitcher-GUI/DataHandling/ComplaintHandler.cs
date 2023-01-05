@@ -1,6 +1,5 @@
-﻿using Housesnitcher_GUI.Models;
-using Housesnitcher_GUI.DataStorageAbstractions;
-using Housesnitcher_GUI.StateManagement;
+﻿using Housesnitcher_GUI.DataStorageAbstractions;
+using Housesnitcher_GUI.Models;
 
 namespace Housesnitcher_GUI.DataHandling
 {

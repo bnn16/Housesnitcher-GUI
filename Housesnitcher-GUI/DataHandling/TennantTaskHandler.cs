@@ -6,7 +6,7 @@ namespace Housesnitcher_GUI.DataHandling
     {
         public bool AssignTask(Models.TennantTask task)
         {
-            if(TennantTaskStore.tasks.Contains(task))
+            if (TennantTaskStore.tasks.Contains(task))
             {
                 return false;
             }
@@ -15,7 +15,7 @@ namespace Housesnitcher_GUI.DataHandling
         }
         public static bool CompleteTask(Models.TennantTask task)
         {
-            if(task.Status != Models.TennantTaskStatus.Assigned)
+            if (task.Status != Models.TennantTaskStatus.Assigned)
             {
                 return false;
             }
