@@ -11,10 +11,6 @@ namespace Housesnitcher_GUI.GUI.Controls
             {
                 return _complaint;
             }
-            set
-            {
-                _complaint = value;
-            }
         }
         public DateTime Date
         {

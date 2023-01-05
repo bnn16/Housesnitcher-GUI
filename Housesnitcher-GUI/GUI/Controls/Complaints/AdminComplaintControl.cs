@@ -1,4 +1,6 @@
-﻿using Housesnitcher_GUI.Models;
+﻿using Housesnitcher_GUI.DataHandling;
+using Housesnitcher_GUI.GUI.Forms;
+using Housesnitcher_GUI.Models;
 
 namespace Housesnitcher_GUI.GUI.Controls.Complaints
 {
@@ -8,6 +10,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
         {
             InitializeComponent();
             ComplaintControlView.UpdateUsingObject = complaint;
+            lblComplainer.Text = complaint.Username;
             ActivateButton();
         }
 
@@ -34,6 +37,41 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
                 default:
                     break;
             }
+        }
+        private void btnInvalidate_Click(object sender, EventArgs e)
+        {
+            var ret = ComplaintHandler.FailComplaint(ComplaintControlView.StoredComplaint);
+            _ = ret ?? throw new NullReferenceException();
+            ComplaintControlView.UpdateUsingObject = ret;
+        }
+
+        private void btnResolve_Click(object sender, EventArgs e)
+        {
+            var ret = ComplaintHandler.ResolveComplaint(ComplaintControlView.StoredComplaint);
+            _ = ret ?? throw new NullReferenceException();
+            ComplaintControlView.UpdateUsingObject = ret;
+        }
+
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ComplaintControlView.Hide();
+            ResolvePanel.Show();
+        }
+
+        private void btnAcknowledge_Click(object sender, EventArgs e)
+        {
+            var ret = ComplaintHandler.AcknowledgeComplaint(ComplaintControlView.StoredComplaint);
+            _ = ret ?? throw new NullReferenceException();
+            ComplaintControlView.UpdateUsingObject = ret;
+        }
+
+        private void btnConfirmReview_Click(object sender, EventArgs e)
+        {
+            var ret = ComplaintHandler.ReviewComplaint(ComplaintControlView.StoredComplaint, tbReviewText.Text);
+            ResolvePanel.Hide();
+            _ = ret ?? throw new NullReferenceException();
+            ComplaintControlView.Show();
+            ComplaintControlView.UpdateUsingObject = ret;
         }
     }
 }

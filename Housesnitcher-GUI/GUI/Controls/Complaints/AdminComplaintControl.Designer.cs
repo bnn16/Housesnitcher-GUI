@@ -28,19 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
             this.btnAcknowledge = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
             this.btnResolve = new System.Windows.Forms.Button();
             this.btnInvalidate = new System.Windows.Forms.Button();
+            this.lblComplainer = new System.Windows.Forms.Label();
+            this.complaintControl1 = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
+            this.ResolvePanel = new System.Windows.Forms.Panel();
+            this.btnConfirmReview = new System.Windows.Forms.Button();
+            this.tbReviewText = new System.Windows.Forms.RichTextBox();
+            this.ResolvePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ComplaintControlView
-            // 
-            this.ComplaintControlView.Location = new System.Drawing.Point(0, 0);
-            this.ComplaintControlView.Name = "ComplaintControlView";
-            this.ComplaintControlView.Size = new System.Drawing.Size(300, 200);
-            this.ComplaintControlView.TabIndex = 0;
             // 
             // btnAcknowledge
             // 
@@ -52,6 +50,7 @@
             this.btnAcknowledge.TabIndex = 1;
             this.btnAcknowledge.Text = "Acknowledge";
             this.btnAcknowledge.UseVisualStyleBackColor = true;
+            this.btnAcknowledge.Click += new System.EventHandler(this.btnAcknowledge_Click);
             // 
             // btnReview
             // 
@@ -63,6 +62,7 @@
             this.btnReview.TabIndex = 2;
             this.btnReview.Text = "Review";
             this.btnReview.UseVisualStyleBackColor = true;
+            this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
             // 
             // btnResolve
             // 
@@ -74,6 +74,7 @@
             this.btnResolve.TabIndex = 3;
             this.btnResolve.Text = "Resolve";
             this.btnResolve.UseVisualStyleBackColor = true;
+            this.btnResolve.Click += new System.EventHandler(this.btnResolve_Click);
             // 
             // btnInvalidate
             // 
@@ -84,18 +85,69 @@
             this.btnInvalidate.TabIndex = 4;
             this.btnInvalidate.Text = "Invalidate";
             this.btnInvalidate.UseVisualStyleBackColor = true;
+            this.btnInvalidate.Click += new System.EventHandler(this.btnInvalidate_Click);
+            // 
+            // lblComplainer
+            // 
+            this.lblComplainer.AutoSize = true;
+            this.lblComplainer.Location = new System.Drawing.Point(3, 215);
+            this.lblComplainer.Name = "lblComplainer";
+            this.lblComplainer.Size = new System.Drawing.Size(69, 15);
+            this.lblComplainer.TabIndex = 5;
+            this.lblComplainer.Text = "Complainer";
+            // 
+            // complaintControl1
+            // 
+            this.complaintControl1.Location = new System.Drawing.Point(-2, -2);
+            this.complaintControl1.Name = "complaintControl1";
+            this.complaintControl1.Size = new System.Drawing.Size(300, 200);
+            this.complaintControl1.TabIndex = 6;
+            // 
+            // ResolvePanel
+            // 
+            this.ResolvePanel.Controls.Add(this.btnConfirmReview);
+            this.ResolvePanel.Controls.Add(this.tbReviewText);
+            this.ResolvePanel.Location = new System.Drawing.Point(12, 16);
+            this.ResolvePanel.Name = "ResolvePanel";
+            this.ResolvePanel.Size = new System.Drawing.Size(286, 168);
+            this.ResolvePanel.TabIndex = 7;
+            this.ResolvePanel.Visible = false;
+            // 
+            // btnConfirmReview
+            // 
+            this.btnConfirmReview.AutoSize = true;
+            this.btnConfirmReview.Location = new System.Drawing.Point(169, 120);
+            this.btnConfirmReview.Name = "btnConfirmReview";
+            this.btnConfirmReview.Size = new System.Drawing.Size(101, 25);
+            this.btnConfirmReview.TabIndex = 1;
+            this.btnConfirmReview.Text = "Confirm Review";
+            this.btnConfirmReview.UseVisualStyleBackColor = true;
+            this.btnConfirmReview.Click += new System.EventHandler(this.btnConfirmReview_Click);
+            // 
+            // tbReviewText
+            // 
+            this.tbReviewText.Location = new System.Drawing.Point(0, 0);
+            this.tbReviewText.Name = "tbReviewText";
+            this.tbReviewText.Size = new System.Drawing.Size(286, 101);
+            this.tbReviewText.TabIndex = 0;
+            this.tbReviewText.Text = "";
             // 
             // AdminComplaintControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.ResolvePanel);
+            this.Controls.Add(this.complaintControl1);
+            this.Controls.Add(this.lblComplainer);
             this.Controls.Add(this.btnInvalidate);
             this.Controls.Add(this.btnResolve);
             this.Controls.Add(this.btnReview);
             this.Controls.Add(this.btnAcknowledge);
-            this.Controls.Add(this.ComplaintControlView);
             this.Name = "AdminComplaintControl";
-            this.Size = new System.Drawing.Size(400, 200);
+            this.Size = new System.Drawing.Size(396, 246);
+            this.ResolvePanel.ResumeLayout(false);
+            this.ResolvePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +160,10 @@
         private Button btnReview;
         private Button btnResolve;
         private Button btnInvalidate;
+        private Label lblComplainer;
+        private ComplaintControl complaintControl1;
+        private Panel ResolvePanel;
+        private Button btnConfirmReview;
+        private RichTextBox tbReviewText;
     }
 }

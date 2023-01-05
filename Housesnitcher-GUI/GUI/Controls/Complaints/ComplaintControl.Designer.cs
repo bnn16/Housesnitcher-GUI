@@ -85,13 +85,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.rtbDescription);
             this.Controls.Add(this.lblDateReference);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTitle);
             this.Name = "ComplaintControl";
-            this.Size = new System.Drawing.Size(300, 200);
+            this.Size = new System.Drawing.Size(296, 196);
             this.ResumeLayout(false);
             this.PerformLayout();
 
