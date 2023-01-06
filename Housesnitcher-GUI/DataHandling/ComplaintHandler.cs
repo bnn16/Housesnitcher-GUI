@@ -54,5 +54,10 @@ namespace Housesnitcher_GUI.DataHandling
             ComplaintStore.Complaints[idx].Status++;
             return ComplaintStore.Complaints[idx];
         }
+
+        public static List<Complaint> AllComplaints()
+        {
+            return ComplaintStore.Complaints;
+        }
     }
 }
