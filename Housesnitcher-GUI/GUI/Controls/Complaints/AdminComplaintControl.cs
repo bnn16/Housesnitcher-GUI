@@ -1,5 +1,4 @@
 ﻿using Housesnitcher_GUI.DataHandling;
-using Housesnitcher_GUI.GUI.Forms;
 using Housesnitcher_GUI.Models;
 
 namespace Housesnitcher_GUI.GUI.Controls.Complaints

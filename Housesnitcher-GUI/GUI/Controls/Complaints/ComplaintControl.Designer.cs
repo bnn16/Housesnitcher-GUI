@@ -92,7 +92,7 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTitle);
             this.Name = "ComplaintControl";
-            this.Size = new System.Drawing.Size(296, 196);
+            this.Size = new System.Drawing.Size(300, 200);
             this.ResumeLayout(false);
             this.PerformLayout();
 

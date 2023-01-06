@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label1;
             this.btnAcknowledge = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
             this.btnResolve = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.ResolvePanel = new System.Windows.Forms.Panel();
             this.btnConfirmReview = new System.Windows.Forms.Button();
             this.tbReviewText = new System.Windows.Forms.RichTextBox();
+            label1 = new System.Windows.Forms.Label();
             this.ResolvePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +100,7 @@
             // 
             // complaintControl1
             // 
+            this.complaintControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.complaintControl1.Location = new System.Drawing.Point(-2, -2);
             this.complaintControl1.Name = "complaintControl1";
             this.complaintControl1.Size = new System.Drawing.Size(300, 200);
@@ -105,18 +108,19 @@
             // 
             // ResolvePanel
             // 
+            this.ResolvePanel.Controls.Add(label1);
             this.ResolvePanel.Controls.Add(this.btnConfirmReview);
             this.ResolvePanel.Controls.Add(this.tbReviewText);
-            this.ResolvePanel.Location = new System.Drawing.Point(12, 16);
+            this.ResolvePanel.Location = new System.Drawing.Point(-2, -2);
             this.ResolvePanel.Name = "ResolvePanel";
-            this.ResolvePanel.Size = new System.Drawing.Size(286, 168);
+            this.ResolvePanel.Size = new System.Drawing.Size(300, 200);
             this.ResolvePanel.TabIndex = 7;
             this.ResolvePanel.Visible = false;
             // 
             // btnConfirmReview
             // 
             this.btnConfirmReview.AutoSize = true;
-            this.btnConfirmReview.Location = new System.Drawing.Point(169, 120);
+            this.btnConfirmReview.Location = new System.Drawing.Point(172, 161);
             this.btnConfirmReview.Name = "btnConfirmReview";
             this.btnConfirmReview.Size = new System.Drawing.Size(101, 25);
             this.btnConfirmReview.TabIndex = 1;
@@ -126,11 +130,20 @@
             // 
             // tbReviewText
             // 
-            this.tbReviewText.Location = new System.Drawing.Point(0, 0);
+            this.tbReviewText.Location = new System.Drawing.Point(5, 49);
             this.tbReviewText.Name = "tbReviewText";
             this.tbReviewText.Size = new System.Drawing.Size(286, 101);
             this.tbReviewText.TabIndex = 0;
             this.tbReviewText.Text = "";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(69, 18);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(172, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Write a review of the complaint";
             // 
             // AdminComplaintControl
             // 
@@ -145,7 +158,7 @@
             this.Controls.Add(this.btnReview);
             this.Controls.Add(this.btnAcknowledge);
             this.Name = "AdminComplaintControl";
-            this.Size = new System.Drawing.Size(396, 246);
+            this.Size = new System.Drawing.Size(400, 250);
             this.ResolvePanel.ResumeLayout(false);
             this.ResolvePanel.PerformLayout();
             this.ResumeLayout(false);
@@ -165,5 +178,6 @@
         private Panel ResolvePanel;
         private Button btnConfirmReview;
         private RichTextBox tbReviewText;
+        private Label label1;
     }
 }
