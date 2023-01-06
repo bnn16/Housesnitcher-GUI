@@ -29,16 +29,23 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.Panel panel1;
             this.HomeTabControl = new System.Windows.Forms.TabControl();
             this.tpHomepage = new System.Windows.Forms.TabPage();
+            this.flpComplaintsHome = new System.Windows.Forms.FlowLayoutPanel();
             this.tpSelf = new System.Windows.Forms.TabPage();
-            this.tlpComplaintsHome = new System.Windows.Forms.TableLayoutPanel();
             label1 = new System.Windows.Forms.Label();
-            panel1 = new System.Windows.Forms.Panel();
             this.HomeTabControl.SuspendLayout();
             this.tpHomepage.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(76, 65);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(105, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Last 10 complaints";
             // 
             // HomeTabControl
             // 
@@ -53,9 +60,8 @@
             // 
             // tpHomepage
             // 
-            this.tpHomepage.Controls.Add(panel1);
+            this.tpHomepage.Controls.Add(this.flpComplaintsHome);
             this.tpHomepage.Controls.Add(label1);
-            this.tpHomepage.Controls.Add(this.tlpComplaintsHome);
             this.tpHomepage.Location = new System.Drawing.Point(4, 24);
             this.tpHomepage.Name = "tpHomepage";
             this.tpHomepage.Padding = new System.Windows.Forms.Padding(3);
@@ -63,6 +69,16 @@
             this.tpHomepage.TabIndex = 0;
             this.tpHomepage.Text = "Homepage";
             this.tpHomepage.UseVisualStyleBackColor = true;
+            // 
+            // flpComplaintsHome
+            // 
+            this.flpComplaintsHome.AutoScroll = true;
+            this.flpComplaintsHome.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpComplaintsHome.Location = new System.Drawing.Point(19, 94);
+            this.flpComplaintsHome.Name = "flpComplaintsHome";
+            this.flpComplaintsHome.Size = new System.Drawing.Size(323, 476);
+            this.flpComplaintsHome.TabIndex = 2;
+            this.flpComplaintsHome.WrapContents = false;
             // 
             // tpSelf
             // 
@@ -73,35 +89,6 @@
             this.tpSelf.TabIndex = 1;
             this.tpSelf.Text = "Self";
             this.tpSelf.UseVisualStyleBackColor = true;
-            // 
-            // tlpComplaintsHome
-            // 
-            this.tlpComplaintsHome.AutoSize = true;
-            this.tlpComplaintsHome.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpComplaintsHome.ColumnCount = 1;
-            this.tlpComplaintsHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpComplaintsHome.Location = new System.Drawing.Point(47, 99);
-            this.tlpComplaintsHome.Name = "tlpComplaintsHome";
-            this.tlpComplaintsHome.RowCount = 1;
-            this.tlpComplaintsHome.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpComplaintsHome.Size = new System.Drawing.Size(0, 0);
-            this.tlpComplaintsHome.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(76, 65);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(105, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Last 10 complaints";
-            // 
-            // panel1
-            // 
-            panel1.Location = new System.Drawing.Point(47, 99);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(10, 10);
-            panel1.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -123,7 +110,6 @@
         private TabControl HomeTabControl;
         private TabPage tpHomepage;
         private TabPage tpSelf;
-        private TableLayoutPanel tlpComplaintsHome;
-        private Panel panel1;
+        private FlowLayoutPanel flpComplaintsHome;
     }
 }

@@ -10,7 +10,17 @@
         public string? ComplaintFeedback { get; set; }
         public DateTime DateHappened { get; private set; }
         public DateTime DateCreated { get; private set; }
-
+        public Complaint(string title, string description, string username, string type, string? complaintFeedback, DateTime dateHappened)
+        {
+            Title = title;
+            Description = description;
+            Username = username;
+            Type = type;
+            Status = ComplaintStatus.Created;
+            ComplaintFeedback = complaintFeedback;
+            DateHappened = dateHappened;
+            DateCreated = DateTime.Now;
+        }
         public Complaint(string title, string description, string username, string type, ComplaintStatus status, string? complaintFeedback, DateTime dateHappened)
         {
             Title = title;
