@@ -13,7 +13,11 @@ namespace Housesnitcher_GUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+
+            // put some dummy data here if you want to test out the app.
+
+
+            Application.Run(new LoginForm());
         }
     }
 }

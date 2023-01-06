@@ -12,5 +12,13 @@
             Password = BCrypt.Net.BCrypt.HashPassword(password);
             AuthLevel = ScopeLevel.User;
         }
+
+        public override string ToString()
+        {
+            return $$"""
+                    Username: {{Username}}
+                    PermissionLevel: {{AuthLevel}}
+                    """;
+        }
     }
 }
