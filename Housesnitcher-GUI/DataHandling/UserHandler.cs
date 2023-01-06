@@ -7,7 +7,7 @@ namespace Housesnitcher_GUI.DataHandling
     {
         public static User? CreateUser(string username, string unhashedPassword)
         {
-            if (UserStore.Users.Find(x => x.Username == username) == null)
+            if (UserStore.Users.Find(x => x.Username == username) != null)
             {
                 return null;
             }
