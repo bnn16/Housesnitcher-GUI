@@ -88,7 +88,7 @@ namespace Housesnitcher_GUI.GUI.Controls
             {
                 ComplaintStatus.Failed => Color.Red,
                 ComplaintStatus.Created => Color.Black,
-                ComplaintStatus.Acknowledged => Color.Yellow,
+                ComplaintStatus.Acknowledged => Color.Orange,
                 ComplaintStatus.Reviewed => Color.YellowGreen,
                 ComplaintStatus.Resolved => Color.Green,
                 _ => Color.Aqua,
