@@ -12,53 +12,13 @@ namespace Housesnitcher_GUI.GUI.Controls
                 return _complaint;
             }
         }
-        public DateTime Date
-        {
-            get
-            {
-                return DateTime.Parse(lblDate.Text);
-            }
-        }
-        public DateTime DateReference
-        {
-            get
-            {
-                return DateTime.Parse(lblDateReference.Text);
-            }
-        }
-        public ComplaintStatus Status
-        {
-            get
-            {
-                return Enum.Parse<ComplaintStatus>(lblStatus.Text);
-            }
-            set
-            {
-                lblStatus.Text = value.ToString();
-            }
-        }
-        public string Title
-        {
-            get
-            {
-                return lblTitle.Text;
-            }
-        }
-        public string Description
-        {
-            get
-            {
-                return rtbDescription.Text;
-            }
-        }
-
         public Complaint UpdateUsingObject
         {
             set
             {
                 _complaint = value;
                 lblDate.Text = value.DateCreated.ToString();
-                lblDateReference.Text = value.DateHappened.ToString();
+                lblDateReference.Text = value.DateHappened.Date.ToString().Split()[0];
                 lblStatus.Text = value.Status.ToString();
                 lblTitle.Text = value.Title;
                 rtbDescription.Text = value.Description;
