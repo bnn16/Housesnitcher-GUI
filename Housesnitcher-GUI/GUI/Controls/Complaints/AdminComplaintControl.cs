@@ -5,12 +5,16 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
 {
     public partial class AdminComplaintControl : UserControl
     {
+        public Complaint UpdateUsingObject
+        { set {
+                ComplaintControlView.UpdateUsingObject = value;
+                ActivateButton();
+            } }
         public AdminComplaintControl(Complaint complaint)
         {
             InitializeComponent();
-            ComplaintControlView.UpdateUsingObject = complaint;
+            UpdateUsingObject = complaint;
             lblComplainer.Text = complaint.Username;
-            ActivateButton();
         }
 
         // based on the status, activate buttons
@@ -28,10 +32,13 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
                     btnAcknowledge.Enabled = true;
                     break;
                 case ComplaintStatus.Acknowledged:
-                    btnResolve.Enabled = true;
+                    btnReview.Enabled = true;
                     break;
                 case ComplaintStatus.Reviewed:
                     btnResolve.Enabled = true;
+                    break;
+                case ComplaintStatus.Resolved:
+                    btnInvalidate.Enabled = false;
                     break;
                 default:
                     break;
@@ -41,14 +48,14 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
         {
             var ret = ComplaintHandler.FailComplaint(ComplaintControlView.StoredComplaint);
             _ = ret ?? throw new NullReferenceException();
-            ComplaintControlView.UpdateUsingObject = ret;
+            UpdateUsingObject = ret;
         }
 
         private void btnResolve_Click(object sender, EventArgs e)
         {
             var ret = ComplaintHandler.ResolveComplaint(ComplaintControlView.StoredComplaint);
             _ = ret ?? throw new NullReferenceException();
-            ComplaintControlView.UpdateUsingObject = ret;
+            UpdateUsingObject = ret;
         }
 
         private void btnReview_Click(object sender, EventArgs e)
@@ -61,7 +68,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
         {
             var ret = ComplaintHandler.AcknowledgeComplaint(ComplaintControlView.StoredComplaint);
             _ = ret ?? throw new NullReferenceException();
-            ComplaintControlView.UpdateUsingObject = ret;
+            UpdateUsingObject = ret;
         }
 
         private void btnConfirmReview_Click(object sender, EventArgs e)
@@ -70,7 +77,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
             ResolvePanel.Hide();
             _ = ret ?? throw new NullReferenceException();
             ComplaintControlView.Show();
-            ComplaintControlView.UpdateUsingObject = ret;
+            UpdateUsingObject = ret;
         }
     }
 }

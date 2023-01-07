@@ -34,13 +34,22 @@
             this.btnResolve = new System.Windows.Forms.Button();
             this.btnInvalidate = new System.Windows.Forms.Button();
             this.lblComplainer = new System.Windows.Forms.Label();
-            this.complaintControl1 = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
+            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
             this.ResolvePanel = new System.Windows.Forms.Panel();
             this.btnConfirmReview = new System.Windows.Forms.Button();
             this.tbReviewText = new System.Windows.Forms.RichTextBox();
             label1 = new System.Windows.Forms.Label();
             this.ResolvePanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(69, 18);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(172, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Write a review of the complaint";
             // 
             // btnAcknowledge
             // 
@@ -98,13 +107,13 @@
             this.lblComplainer.TabIndex = 5;
             this.lblComplainer.Text = "Complainer";
             // 
-            // complaintControl1
+            // ComplaintControlView
             // 
-            this.complaintControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.complaintControl1.Location = new System.Drawing.Point(-2, -2);
-            this.complaintControl1.Name = "complaintControl1";
-            this.complaintControl1.Size = new System.Drawing.Size(300, 200);
-            this.complaintControl1.TabIndex = 6;
+            this.ComplaintControlView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ComplaintControlView.Location = new System.Drawing.Point(-2, -2);
+            this.ComplaintControlView.Name = "ComplaintControlView";
+            this.ComplaintControlView.Size = new System.Drawing.Size(300, 200);
+            this.ComplaintControlView.TabIndex = 6;
             // 
             // ResolvePanel
             // 
@@ -136,22 +145,13 @@
             this.tbReviewText.TabIndex = 0;
             this.tbReviewText.Text = "";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(69, 18);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(172, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Write a review of the complaint";
-            // 
             // AdminComplaintControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.ResolvePanel);
-            this.Controls.Add(this.complaintControl1);
+            this.Controls.Add(this.ComplaintControlView);
             this.Controls.Add(this.lblComplainer);
             this.Controls.Add(this.btnInvalidate);
             this.Controls.Add(this.btnResolve);
@@ -168,13 +168,12 @@
 
         #endregion
 
-        private ComplaintControl ComplaintControlView;
         private Button btnAcknowledge;
         private Button btnReview;
         private Button btnResolve;
         private Button btnInvalidate;
         private Label lblComplainer;
-        private ComplaintControl complaintControl1;
+        private ComplaintControl ComplaintControlView;
         private Panel ResolvePanel;
         private Button btnConfirmReview;
         private RichTextBox tbReviewText;
