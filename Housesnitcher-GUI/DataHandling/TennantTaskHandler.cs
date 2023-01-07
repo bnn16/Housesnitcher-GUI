@@ -2,9 +2,9 @@
 
 namespace Housesnitcher_GUI.DataHandling
 {
-    public class TennantTaskHandler
+    public static class TennantTaskHandler
     {
-        public bool AssignTask(Models.TennantTask task)
+        public static bool AssignTask(Models.TennantTask task)
         {
             if (TennantTaskStore.tasks.Contains(task))
             {
