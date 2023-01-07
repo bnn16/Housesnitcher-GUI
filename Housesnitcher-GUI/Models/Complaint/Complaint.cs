@@ -32,5 +32,14 @@
             DateHappened = dateHappened;
             DateCreated = DateTime.Now;
         }
+        public Complaint(string title, string description, string username, string type, DateTime dateHappened)
+        {
+            Title = title;
+            Description = description;
+            Username = username;
+            Type = type;
+            DateHappened = dateHappened;
+            DateCreated = DateTime.Now;
+        }
     }
 }
