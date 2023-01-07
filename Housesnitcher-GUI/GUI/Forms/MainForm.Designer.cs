@@ -129,7 +129,7 @@
             this.HomeTabControl.Location = new System.Drawing.Point(0, 0);
             this.HomeTabControl.Name = "HomeTabControl";
             this.HomeTabControl.SelectedIndex = 0;
-            this.HomeTabControl.Size = new System.Drawing.Size(1013, 601);
+            this.HomeTabControl.Size = new System.Drawing.Size(1266, 610);
             this.HomeTabControl.TabIndex = 0;
             this.HomeTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.HomeTabControl_Selected);
             // 
@@ -141,7 +141,7 @@
             this.tpHomepage.Location = new System.Drawing.Point(4, 24);
             this.tpHomepage.Name = "tpHomepage";
             this.tpHomepage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHomepage.Size = new System.Drawing.Size(1005, 573);
+            this.tpHomepage.Size = new System.Drawing.Size(1258, 582);
             this.tpHomepage.TabIndex = 0;
             this.tpHomepage.Text = "Homepage";
             this.tpHomepage.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblUserData, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(883, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1129, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -190,14 +190,14 @@
             this.tpSelf.Location = new System.Drawing.Point(4, 24);
             this.tpSelf.Name = "tpSelf";
             this.tpSelf.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSelf.Size = new System.Drawing.Size(1005, 573);
+            this.tpSelf.Size = new System.Drawing.Size(1258, 582);
             this.tpSelf.TabIndex = 1;
             this.tpSelf.Text = "Self";
             this.tpSelf.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(922, 22);
+            this.btnLogout.Location = new System.Drawing.Point(1175, 21);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 23);
             this.btnLogout.TabIndex = 8;
@@ -299,9 +299,9 @@
             // flpInShort
             // 
             this.flpInShort.AutoScroll = true;
-            this.flpInShort.Location = new System.Drawing.Point(484, 83);
+            this.flpInShort.Location = new System.Drawing.Point(484, 79);
             this.flpInShort.Name = "flpInShort";
-            this.flpInShort.Size = new System.Drawing.Size(241, 484);
+            this.flpInShort.Size = new System.Drawing.Size(241, 488);
             this.flpInShort.TabIndex = 7;
             // 
             // btnLodgeComplaint
@@ -329,7 +329,7 @@
             // 
             this.tpAdmin.Location = new System.Drawing.Point(4, 24);
             this.tpAdmin.Name = "tpAdmin";
-            this.tpAdmin.Size = new System.Drawing.Size(1005, 573);
+            this.tpAdmin.Size = new System.Drawing.Size(1258, 582);
             this.tpAdmin.TabIndex = 2;
             this.tpAdmin.Text = "Administration";
             this.tpAdmin.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 601);
+            this.ClientSize = new System.Drawing.Size(1266, 610);
             this.Controls.Add(this.HomeTabControl);
             this.Name = "MainForm";
             this.Text = "HouseSnitcher";
