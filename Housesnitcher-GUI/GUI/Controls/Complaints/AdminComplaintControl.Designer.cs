@@ -38,6 +38,7 @@
             this.ResolvePanel = new System.Windows.Forms.Panel();
             this.btnConfirmReview = new System.Windows.Forms.Button();
             this.tbReviewText = new System.Windows.Forms.RichTextBox();
+            this.btnCancelReview = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.ResolvePanel.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // ResolvePanel
             // 
+            this.ResolvePanel.Controls.Add(this.btnCancelReview);
             this.ResolvePanel.Controls.Add(label1);
             this.ResolvePanel.Controls.Add(this.btnConfirmReview);
             this.ResolvePanel.Controls.Add(this.tbReviewText);
@@ -144,6 +146,17 @@
             this.tbReviewText.Size = new System.Drawing.Size(286, 101);
             this.tbReviewText.TabIndex = 0;
             this.tbReviewText.Text = "";
+            // 
+            // btnCancelReview
+            // 
+            this.btnCancelReview.AutoSize = true;
+            this.btnCancelReview.Location = new System.Drawing.Point(42, 161);
+            this.btnCancelReview.Name = "btnCancelReview";
+            this.btnCancelReview.Size = new System.Drawing.Size(93, 25);
+            this.btnCancelReview.TabIndex = 3;
+            this.btnCancelReview.Text = "Cancel Review";
+            this.btnCancelReview.UseVisualStyleBackColor = true;
+            this.btnCancelReview.Click += new System.EventHandler(this.btnCancelReview_Click);
             // 
             // AdminComplaintControl
             // 
@@ -178,5 +191,6 @@
         private Button btnConfirmReview;
         private RichTextBox tbReviewText;
         private Label label1;
+        private Button btnCancelReview;
     }
 }

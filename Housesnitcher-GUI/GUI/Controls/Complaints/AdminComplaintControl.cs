@@ -6,15 +6,18 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
     public partial class AdminComplaintControl : UserControl
     {
         public Complaint UpdateUsingObject
-        { set {
+        {
+            set
+            {
                 ComplaintControlView.UpdateUsingObject = value;
+                lblComplainer.Text = value.Username;
                 ActivateButton();
-            } }
+            }
+        }
         public AdminComplaintControl(Complaint complaint)
         {
             InitializeComponent();
             UpdateUsingObject = complaint;
-            lblComplainer.Text = complaint.Username;
         }
 
         // based on the status, activate buttons
@@ -40,7 +43,8 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
                 case ComplaintStatus.Resolved:
                     btnInvalidate.Enabled = false;
                     break;
-                default:
+                case ComplaintStatus.Failed:
+                    btnInvalidate.Enabled = false;
                     break;
             }
         }
@@ -78,6 +82,12 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
             _ = ret ?? throw new NullReferenceException();
             ComplaintControlView.Show();
             UpdateUsingObject = ret;
+        }
+
+        private void btnCancelReview_Click(object sender, EventArgs e)
+        {
+            ResolvePanel.Hide();
+            ComplaintControlView.Show();
         }
     }
 }
