@@ -11,7 +11,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
             {
                 _complaint = value;
                 lblDate.Text = value.DateCreated.ToString();
-                lblDateReference.Text = value.DateHappened.ToString();
+                lblDateReference.Text = value.DateHappened.Date.ToString();
                 lblStatus.Text = value.Status.ToString();
                 lblTitle.Text = value.Title;
                 PaintColor(value.Status);
