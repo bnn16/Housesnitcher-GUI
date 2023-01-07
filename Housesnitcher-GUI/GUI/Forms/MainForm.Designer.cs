@@ -36,10 +36,12 @@
             System.Windows.Forms.Label label5;
             this.HomeTabControl = new System.Windows.Forms.TabControl();
             this.tpHomepage = new System.Windows.Forms.TabPage();
-            this.tbLoggedInAs = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblUserData = new System.Windows.Forms.Label();
             this.flpComplaintsHome = new System.Windows.Forms.FlowLayoutPanel();
             this.tpSelf = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.pLodgeComplaint = new System.Windows.Forms.Panel();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreateComplaint = new System.Windows.Forms.Button();
@@ -59,8 +61,9 @@
             label5 = new System.Windows.Forms.Label();
             this.HomeTabControl.SuspendLayout();
             this.tpHomepage.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tpSelf.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pLodgeComplaint.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -131,7 +134,7 @@
             // 
             // tpHomepage
             // 
-            this.tpHomepage.Controls.Add(this.tbLoggedInAs);
+            this.tpHomepage.Controls.Add(this.tableLayoutPanel1);
             this.tpHomepage.Controls.Add(this.flpComplaintsHome);
             this.tpHomepage.Controls.Add(label1);
             this.tpHomepage.Location = new System.Drawing.Point(4, 24);
@@ -142,14 +145,27 @@
             this.tpHomepage.Text = "Homepage";
             this.tpHomepage.UseVisualStyleBackColor = true;
             // 
-            // tbLoggedInAs
+            // tableLayoutPanel1
             // 
-            this.tbLoggedInAs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbLoggedInAs.Location = new System.Drawing.Point(902, 3);
-            this.tbLoggedInAs.Multiline = true;
-            this.tbLoggedInAs.Name = "tbLoggedInAs";
-            this.tbLoggedInAs.Size = new System.Drawing.Size(100, 66);
-            this.tbLoggedInAs.TabIndex = 5;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.lblUserData, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(883, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(126, 106);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // lblUserData
+            // 
+            this.lblUserData.AutoSize = true;
+            this.lblUserData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUserData.Location = new System.Drawing.Point(3, 0);
+            this.lblUserData.Name = "lblUserData";
+            this.lblUserData.Size = new System.Drawing.Size(120, 106);
+            this.lblUserData.TabIndex = 0;
+            this.lblUserData.Text = "CurrentUserLoggedIn";
             // 
             // flpComplaintsHome
             // 
@@ -163,7 +179,8 @@
             // 
             // tpSelf
             // 
-            this.tpSelf.Controls.Add(this.panel1);
+            this.tpSelf.Controls.Add(this.btnLogout);
+            this.tpSelf.Controls.Add(this.pLodgeComplaint);
             this.tpSelf.Controls.Add(this.flowLayoutPanel1);
             this.tpSelf.Controls.Add(label5);
             this.tpSelf.Controls.Add(this.btnLodgeComplaint);
@@ -177,23 +194,33 @@
             this.tpSelf.Text = "Self";
             this.tpSelf.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // btnLogout
             // 
-            this.panel1.Controls.Add(this.cbType);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnCreateComplaint);
-            this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.dtHappened);
-            this.panel1.Controls.Add(label2);
-            this.panel1.Controls.Add(shitLabel);
-            this.panel1.Controls.Add(this.tbDescription);
-            this.panel1.Controls.Add(this.tbTitle);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Location = new System.Drawing.Point(8, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 403);
-            this.panel1.TabIndex = 6;
-            this.panel1.Visible = false;
+            this.btnLogout.Location = new System.Drawing.Point(922, 22);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 8;
+            this.btnLogout.Text = "Log out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // pLodgeComplaint
+            // 
+            this.pLodgeComplaint.Controls.Add(this.cbType);
+            this.pLodgeComplaint.Controls.Add(this.btnCancel);
+            this.pLodgeComplaint.Controls.Add(this.btnCreateComplaint);
+            this.pLodgeComplaint.Controls.Add(label4);
+            this.pLodgeComplaint.Controls.Add(this.dtHappened);
+            this.pLodgeComplaint.Controls.Add(label2);
+            this.pLodgeComplaint.Controls.Add(shitLabel);
+            this.pLodgeComplaint.Controls.Add(this.tbDescription);
+            this.pLodgeComplaint.Controls.Add(this.tbTitle);
+            this.pLodgeComplaint.Controls.Add(this.label13);
+            this.pLodgeComplaint.Location = new System.Drawing.Point(8, 61);
+            this.pLodgeComplaint.Name = "pLodgeComplaint";
+            this.pLodgeComplaint.Size = new System.Drawing.Size(353, 403);
+            this.pLodgeComplaint.TabIndex = 6;
+            this.pLodgeComplaint.Visible = false;
             // 
             // cbType
             // 
@@ -316,10 +343,12 @@
             this.HomeTabControl.ResumeLayout(false);
             this.tpHomepage.ResumeLayout(false);
             this.tpHomepage.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tpSelf.ResumeLayout(false);
             this.tpSelf.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pLodgeComplaint.ResumeLayout(false);
+            this.pLodgeComplaint.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -330,10 +359,9 @@
         private TabPage tpHomepage;
         private TabPage tpSelf;
         private FlowLayoutPanel flpComplaintsHome;
-        private TextBox tbLoggedInAs;
         private TabPage tpAdmin;
         private FlowLayoutPanel flpMyComplaints;
-        private Panel panel1;
+        private Panel pLodgeComplaint;
         private Button btnCreateComplaint;
         private DateTimePicker dtHappened;
         private TextBox tbDescription;
@@ -343,5 +371,8 @@
         private Button btnCancel;
         private FlowLayoutPanel flowLayoutPanel1;
         private ComboBox cbType;
+        private Button btnLogout;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblUserData;
     }
 }

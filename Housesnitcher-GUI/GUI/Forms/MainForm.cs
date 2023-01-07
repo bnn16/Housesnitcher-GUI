@@ -7,7 +7,7 @@ namespace Housesnitcher_GUI.GUI.Forms
 {
     public partial class MainForm : Form
     {
-        User _user;
+        User _user { get; }
         // initializing the whole form and filling in the different data.
         public MainForm(User user)
         {
@@ -16,6 +16,8 @@ namespace Housesnitcher_GUI.GUI.Forms
             InitializeComponent();
             ShowAppropriatePages();
             // if you have other important things to add to here, please respect the order.
+
+            lblUserData.Text = _user.ToString();
 
             foreach (var type in State.complaintTypes)
             {
@@ -38,13 +40,13 @@ namespace Housesnitcher_GUI.GUI.Forms
         private void btnLodgeComplaint_Click(object sender, EventArgs e)
         {
             flpMyComplaints.Hide();
-            panel1.Show();
+            pLodgeComplaint.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             flpMyComplaints.Show();
-            panel1.Hide();
+            pLodgeComplaint.Hide();
         }
 
         private void btnCreateComplaint_Click(object sender, EventArgs e)
@@ -67,6 +69,12 @@ namespace Housesnitcher_GUI.GUI.Forms
             {
                 HomeTabControl.TabPages.Add(tpAdmin);
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            new LoginForm().Show();
+            Hide();
         }
     }
 }
