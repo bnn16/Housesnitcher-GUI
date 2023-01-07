@@ -49,7 +49,7 @@
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpInShort = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLodgeComplaint = new System.Windows.Forms.Button();
             this.flpMyComplaints = new System.Windows.Forms.FlowLayoutPanel();
             this.tpAdmin = new System.Windows.Forms.TabPage();
@@ -181,7 +181,7 @@
             // 
             this.tpSelf.Controls.Add(this.btnLogout);
             this.tpSelf.Controls.Add(this.pLodgeComplaint);
-            this.tpSelf.Controls.Add(this.flowLayoutPanel1);
+            this.tpSelf.Controls.Add(this.flpInShort);
             this.tpSelf.Controls.Add(label5);
             this.tpSelf.Controls.Add(this.btnLodgeComplaint);
             this.tpSelf.Controls.Add(this.flpMyComplaints);
@@ -295,12 +295,13 @@
             this.label13.TabIndex = 30;
             this.label13.Text = "Type:";
             // 
-            // flowLayoutPanel1
+            // flpInShort
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(484, 83);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 7;
+            this.flpInShort.AutoScroll = true;
+            this.flpInShort.Location = new System.Drawing.Point(484, 83);
+            this.flpInShort.Name = "flpInShort";
+            this.flpInShort.Size = new System.Drawing.Size(241, 484);
+            this.flpInShort.TabIndex = 7;
             // 
             // btnLodgeComplaint
             // 
@@ -369,7 +370,7 @@
         private Label label13;
         private Button btnLodgeComplaint;
         private Button btnCancel;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flpInShort;
         private ComboBox cbType;
         private Button btnLogout;
         private TableLayoutPanel tableLayoutPanel1;

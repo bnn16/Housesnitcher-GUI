@@ -24,15 +24,25 @@ namespace Housesnitcher_GUI.GUI.Forms
                 cbType.Items.Add(type);
                 cbType.AutoCompleteCustomSource.Add(type);
             }
-
+            
+            // populate the homepage
             foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
             {
                 flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
             }
+
+            // populate the user-specific page
             foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
             {
                 flpMyComplaints.Controls.Add(new PersonalUserComplaintControl(complaint));
             }
+
+            // populate in-short section
+            foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
+            { 
+                flpInShort.Controls.Add(new CompactComplaintControl(complaint));
+            }
+
         }
 
 
@@ -71,6 +81,7 @@ namespace Housesnitcher_GUI.GUI.Forms
             }
         }
 
+        // logout button, duh.
         private void btnLogout_Click(object sender, EventArgs e)
         {
             new LoginForm().Show();

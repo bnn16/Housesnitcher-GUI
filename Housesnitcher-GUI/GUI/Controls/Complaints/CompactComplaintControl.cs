@@ -41,5 +41,10 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
                 _ => Color.Aqua,
             };
         }
+
+        private void CompactComplaintControl_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($$"""The administrator has responded: {{_complaint.ComplaintFeedback ?? "Nothing."}}""");
+        }
     }
 }
