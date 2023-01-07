@@ -1,23 +1,71 @@
 using Housesnitcher_GUI.DataHandling;
-using Housesnitcher_GUI.GUI.Controls;
+using Housesnitcher_GUI.GUI.Controls.Complaints;
 using Housesnitcher_GUI.Models;
-using System.Diagnostics;
+using Housesnitcher_GUI.StateManagement;
 
 namespace Housesnitcher_GUI.GUI.Forms
 {
     public partial class MainForm : Form
     {
         User _user;
+        // initializing the whole form and filling in the different data.
         public MainForm(User user)
         {
             // reminder to the next person: keep this at the top ffs. Second time I fall for this in an hour.
-            InitializeComponent();
-            
-            
             _user = user;
-            foreach (var complaint in ComplaintHandler.AllComplaints())
+            InitializeComponent();
+            ShowAppropriatePages();
+            // if you have other important things to add to here, please respect the order.
+
+            foreach (var type in State.complaintTypes)
             {
-                flpComplaintsHome.Controls.Add(new ComplaintControl(complaint));
+                cbType.Items.Add(type);
+                cbType.AutoCompleteCustomSource.Add(type);
+            }
+
+            foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
+            {
+                flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
+            }
+            foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
+            {
+                flpMyComplaints.Controls.Add(new PersonalUserComplaintControl(complaint));
+            }
+        }
+
+
+        // complaints creation section of the code, boring stuff.
+        private void btnLodgeComplaint_Click(object sender, EventArgs e)
+        {
+            flpMyComplaints.Hide();
+            panel1.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            flpMyComplaints.Show();
+            panel1.Hide();
+        }
+
+        private void btnCreateComplaint_Click(object sender, EventArgs e)
+        {
+            ComplaintHandler.LodgeComplaint(new Complaint(tbTitle.Text, tbDescription.Text, _user.Username, cbType.Text, dtHappened.Value));
+        }
+
+        // after login check which pages should be shown
+        private void ShowAppropriatePages()
+        {
+            HomeTabControl.TabPages.Clear();
+            HomeTabControl.TabPages.Add(tpHomepage);
+
+            if (_user.AuthLevel == ScopeLevel.None)
+            {
+                return;
+            }
+            HomeTabControl.TabPages.Add(tpSelf);
+            if (_user.AuthLevel == ScopeLevel.Admin)
+            {
+                HomeTabControl.TabPages.Add(tpAdmin);
             }
         }
     }
