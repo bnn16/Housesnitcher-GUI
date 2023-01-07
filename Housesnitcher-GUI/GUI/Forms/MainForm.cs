@@ -9,6 +9,37 @@ namespace Housesnitcher_GUI.GUI.Forms
     {
         User _user { get; }
         // initializing the whole form and filling in the different data.
+        void HydratePages() {
+            {
+                flpComplaintsHome.Controls.Clear();
+                flpMyComplaints.Controls.Clear();
+                flpInShort.Controls.Clear();
+                cbType.Items.Clear();
+                foreach (var type in State.complaintTypes)
+                {
+                    cbType.Items.Add(type);
+                    cbType.AutoCompleteCustomSource.Add(type);
+                }
+
+                // populate the homepage
+                foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
+                {
+                    flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
+                }
+
+                // populate the user-specific page
+                foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
+                {
+                    flpMyComplaints.Controls.Add(new PersonalUserComplaintControl(complaint));
+                }
+
+                // populate in-short section
+                foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
+                {
+                    flpInShort.Controls.Add(new CompactComplaintControl(complaint));
+                }
+            }
+        }
         public MainForm(User user)
         {
             // reminder to the next person: keep this at the top ffs. Second time I fall for this in an hour.
@@ -18,31 +49,7 @@ namespace Housesnitcher_GUI.GUI.Forms
             // if you have other important things to add to here, please respect the order.
 
             lblUserData.Text = _user.ToString();
-
-            foreach (var type in State.complaintTypes)
-            {
-                cbType.Items.Add(type);
-                cbType.AutoCompleteCustomSource.Add(type);
-            }
-            
-            // populate the homepage
-            foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
-            {
-                flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
-            }
-
-            // populate the user-specific page
-            foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
-            {
-                flpMyComplaints.Controls.Add(new PersonalUserComplaintControl(complaint));
-            }
-
-            // populate in-short section
-            foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
-            { 
-                flpInShort.Controls.Add(new CompactComplaintControl(complaint));
-            }
-
+            HydratePages();
         }
 
 
@@ -86,6 +93,11 @@ namespace Housesnitcher_GUI.GUI.Forms
         {
             new LoginForm().Show();
             Hide();
+        }
+
+        private void HomeTabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            HydratePages();
         }
     }
 }

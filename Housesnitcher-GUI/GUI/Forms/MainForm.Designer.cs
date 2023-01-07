@@ -131,6 +131,7 @@
             this.HomeTabControl.SelectedIndex = 0;
             this.HomeTabControl.Size = new System.Drawing.Size(1013, 601);
             this.HomeTabControl.TabIndex = 0;
+            this.HomeTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.HomeTabControl_Selected);
             // 
             // tpHomepage
             // 
