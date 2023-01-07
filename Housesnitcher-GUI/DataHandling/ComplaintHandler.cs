@@ -59,5 +59,18 @@ namespace Housesnitcher_GUI.DataHandling
         {
             return ComplaintStore.Complaints;
         }
+
+        public static List<Complaint> SpecificUserComplaints(User user)
+        {
+            return Filter(user.Username);
+        }
+        public static List<Complaint> SpecificUserComplaints(string username)
+        {
+            return Filter(username);
+        }
+        private static List<Complaint> Filter(string username)
+        {
+            return AllComplaints().FindAll(x => x.Username == username);
+        }
     }
 }
