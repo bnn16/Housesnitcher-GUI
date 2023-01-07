@@ -34,6 +34,15 @@
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(306, 13);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(126, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Feedback from admin:";
+            // 
             // ComplaintControlView
             // 
             this.ComplaintControlView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -46,30 +55,22 @@
             // 
             this.rtbFeedback.BackColor = System.Drawing.SystemColors.MenuBar;
             this.rtbFeedback.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbFeedback.Location = new System.Drawing.Point(303, 31);
+            this.rtbFeedback.Location = new System.Drawing.Point(303, 45);
             this.rtbFeedback.Name = "rtbFeedback";
-            this.rtbFeedback.Size = new System.Drawing.Size(144, 146);
+            this.rtbFeedback.Size = new System.Drawing.Size(144, 132);
             this.rtbFeedback.TabIndex = 1;
             this.rtbFeedback.Text = "";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(306, 13);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(126, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Feedback from admin:";
             // 
             // PersonalUserComplaintControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(label1);
             this.Controls.Add(this.rtbFeedback);
             this.Controls.Add(this.ComplaintControlView);
             this.Name = "PersonalUserComplaintControl";
-            this.Size = new System.Drawing.Size(450, 200);
+            this.Size = new System.Drawing.Size(446, 196);
             this.ResumeLayout(false);
             this.PerformLayout();
 
