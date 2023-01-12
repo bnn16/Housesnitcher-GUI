@@ -68,7 +68,7 @@ namespace Housesnitcher_GUI.GUI.Forms
 
         private void btnCreateComplaint_Click(object sender, EventArgs e)
         {
-            ComplaintHandler.LodgeComplaint(new Complaint(tbTitle.Text, tbDescription.Text, _user.Username, cbType.Text, dtHappened.Value));
+            ComplaintHandler.LodgeComplaint(new Complaint(tbTitle.Text, tbDescription.Text, _user.Username,cbType.Text,ComplaintStatus.Created,null, dtHappened.Value));
         }
 
         // after login check which pages should be shown
