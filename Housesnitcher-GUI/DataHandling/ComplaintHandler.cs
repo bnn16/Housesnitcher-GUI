@@ -34,8 +34,6 @@ namespace Housesnitcher_GUI.DataHandling
                 }
                 connection.Close();
             }
-
-
             try
             {
                 string query = "Insert into complaints (title, complaint_description, username, complaint_type, date_happened, date_created) values (@title, @complaint_descr, @username, @complaint_type, @date_happened, @date_created)";
@@ -109,8 +107,14 @@ namespace Housesnitcher_GUI.DataHandling
 
         public static List<Complaint> AllComplaints()
         {
-            //https://stackoverflow.com/questions/16856687/getting-data-from-sql-and-putting-in-a-list
-            return ComplaintStore.Complaints;
+            List<Complaint> allComplaints = new List<Complaint>();
+
+
+            using(SqlConnection )
+
+
+                //https://stackoverflow.com/questions/16856687/getting-data-from-sql-and-putting-in-a-list
+                return allComplaints;
         }
 
         public static List<Complaint> SpecificUserComplaints(User user)
