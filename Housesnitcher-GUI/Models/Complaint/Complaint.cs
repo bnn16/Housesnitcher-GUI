@@ -41,7 +41,7 @@
             Type = type;
             DateHappened = dateHappened;
             DateCreated = DateTime.Now;
-            Status= ComplaintStatus.Created;
+            Status = ComplaintStatus.Created;
         }
     }
 }

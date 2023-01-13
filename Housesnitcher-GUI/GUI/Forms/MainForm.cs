@@ -9,7 +9,8 @@ namespace Housesnitcher_GUI.GUI.Forms
     {
         User _user { get; }
         // initializing the whole form and filling in the different data.
-        void HydratePages() {
+        void HydratePages()
+        {
             {
                 flpComplaintsHome.Controls.Clear();
                 flpMyComplaints.Controls.Clear();
@@ -68,7 +69,7 @@ namespace Housesnitcher_GUI.GUI.Forms
 
         private void btnCreateComplaint_Click(object sender, EventArgs e)
         {
-            ComplaintHandler.LodgeComplaint(new Complaint(tbTitle.Text, tbDescription.Text, _user.Username,cbType.Text,ComplaintStatus.Created,null, dtHappened.Value));
+            ComplaintHandler.LodgeComplaint(new Complaint(tbTitle.Text, tbDescription.Text, _user.Username, cbType.Text, ComplaintStatus.Created, null, dtHappened.Value));
         }
 
         // after login check which pages should be shown

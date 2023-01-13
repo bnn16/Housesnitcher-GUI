@@ -1,8 +1,5 @@
-﻿using Housesnitcher_GUI.DataStorageAbstractions;
-using Housesnitcher_GUI.Models;
+﻿using Housesnitcher_GUI.Models;
 using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Housesnitcher_GUI.DataHandling
 {
@@ -34,6 +31,7 @@ namespace Housesnitcher_GUI.DataHandling
                 }
                 connection.Close();
             }
+
             try
             {
                 string query = "Insert into complaints (title, complaint_description, username, complaint_type, date_happened, date_created, complaint_status) values (@title, @complaint_descr, @username, @complaint_type, @date_happened, @date_created, @status)";
@@ -87,31 +85,31 @@ namespace Housesnitcher_GUI.DataHandling
             return BumpStatus(complaint);
         }
         // complaint is trash, spam, doesn't conform to the guidelines, or whatever.
-            public static Complaint? FailComplaint(Complaint complaint)
+        public static Complaint? FailComplaint(Complaint complaint)
+        {
+            using (var connection = new SqlConnection(_connection))
             {
-                using (var connection = new SqlConnection(_connection))
+                connection.Open();
+
+                var command = new SqlCommand("UPDATE complaints SET complaint_status = @status WHERE title = @title AND complaint_description = @description AND username = @username", connection);
+                command.Parameters.AddWithValue("@status", ComplaintStatus.Failed);
+                command.Parameters.AddWithValue("@title", complaint.Title);
+                command.Parameters.AddWithValue("@description", complaint.Description);
+                command.Parameters.AddWithValue("@username", complaint.Username);
+
+                var rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
                 {
-                    connection.Open();
+                    var updatedCommand = new SqlCommand("SELECT * FROM complaints WHERE title = @title AND complaint_description = @description AND username = @username", connection);
+                    updatedCommand.Parameters.AddWithValue("@title", complaint.Title);
+                    updatedCommand.Parameters.AddWithValue("@description", complaint.Description);
+                    updatedCommand.Parameters.AddWithValue("@username", complaint.Username);
 
-                    var command = new SqlCommand("UPDATE complaints SET complaint_status = @status WHERE title = @title AND complaint_description = @description AND username = @username", connection);
-                    command.Parameters.AddWithValue("@status", ComplaintStatus.Failed);
-                    command.Parameters.AddWithValue("@title", complaint.Title);
-                    command.Parameters.AddWithValue("@description", complaint.Description);
-                    command.Parameters.AddWithValue("@username", complaint.Username);
-
-                    var rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    using (var reader = updatedCommand.ExecuteReader())
                     {
-                        var updatedCommand = new SqlCommand("SELECT * FROM complaints WHERE title = @title AND complaint_description = @description AND username = @username", connection);
-                        updatedCommand.Parameters.AddWithValue("@title", complaint.Title);
-                        updatedCommand.Parameters.AddWithValue("@description", complaint.Description);
-                        updatedCommand.Parameters.AddWithValue("@username", complaint.Username);
-
-                        using (var reader = updatedCommand.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
                             string Title = reader["title"].ToString();
                             string ComplaintDescription = reader["complaint_description"].ToString();
                             string Username = reader["username"].ToString();
@@ -120,34 +118,15 @@ namespace Housesnitcher_GUI.DataHandling
                             string Feedback = reader["complaint_feedback"].ToString();
                             DateTime DateHappened = (DateTime)reader["date_happened"];
                             return new Complaint(Title, ComplaintDescription, Username, ComplaintType, Status, Feedback, DateHappened);
-                            }
                         }
                     }
-                
+                }
+
 
                 return null;
             }
 
-<<<<<<< HEAD
-=======
-        public static List<Complaint> AllComplaints()
-        {
-            List<Complaint> allComplaints = new List<Complaint>();
-
-
-            using(SqlConnection )
-
-
-                //https://stackoverflow.com/questions/16856687/getting-data-from-sql-and-putting-in-a-list
-                return allComplaints;
->>>>>>> 95318e7d6747502c0738f93bff9620e2b2cd9949
         }
-        //private static Complaint? BumpStatus(Complaint complaint)
-        //{
-        //    var idx = ComplaintStore.Complaints.FindIndex(x => x == complaint);
-        //    ComplaintStore.Complaints[idx].Status++;
-        //    return ComplaintStore.Complaints[idx];
-        //}
 
         public static Complaint? BumpStatus(Complaint complaint)
         {
@@ -169,7 +148,7 @@ namespace Housesnitcher_GUI.DataHandling
                     {
                         if (reader.Read())
                         {
-                             string Title = reader["title"].ToString();
+                            string Title = reader["title"].ToString();
                             string ComplaintDescription = reader["complaint_description"].ToString();
                             string Username = reader["username"].ToString();
                             string ComplaintType = reader["complaint_type"].ToString();
@@ -198,43 +177,48 @@ namespace Housesnitcher_GUI.DataHandling
                             {
                                 Status = ComplaintStatus.Failed;
                             }
-                            else {
+                            else
+                            {
                                 Status = ComplaintStatus.Failed;
                             }
                             DateTime DateHappened = (DateTime)reader["date_happened"];
                             return new Complaint(Title, ComplaintDescription, Username, ComplaintType, Status, complaint.ComplaintFeedback, DateHappened);
-                            }
                         }
                     }
                 }
-                return null;
             }
+            return null;
+        }
 
 
 
 
-       public static List<Complaint> AllComplaints()
-{
-    List<Complaint> allComp = new List<Complaint>();
-    using (SqlConnection connection = new SqlConnection(_connection)) { 
-        connection.Open();
-        using (SqlCommand command = new SqlCommand("select * from complaints", connection)) {
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read()) {
-                string title = (string)reader["title"];
-                string comp_desc = (string)reader["complaint_description"];
-                string user = (string)reader["username"];
-                string complaint_type = (string)reader["complaint_type"];
-                string comp_feedback = reader["complaint_feedback"] is DBNull ? null : reader["complaint_feedback"].ToString();
-                DateTime date_happened = (DateTime)reader["date_happened"];
-                Complaint c = new Complaint(title, comp_desc , user, complaint_type, comp_feedback  ,date_happened);
-                ComplaintStatus Status;
+        public static List<Complaint> AllComplaints()
+        {
+            List<Complaint> allComp = new List<Complaint>();
+            using (SqlConnection connection = new SqlConnection(_connection))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("select * from complaints", connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string title = (string)reader["title"];
+                        string comp_desc = (string)reader["complaint_description"];
+                        string user = (string)reader["username"];
+                        string complaint_type = (string)reader["complaint_type"];
+                        string comp_feedback = reader["complaint_feedback"] is DBNull ? null : reader["complaint_feedback"].ToString();
+                        DateTime date_happened = (DateTime)reader["date_happened"];
+                        Complaint c = new Complaint(title, comp_desc, user, complaint_type, comp_feedback, date_happened);
+                        ComplaintStatus Status;
 
                         if (reader.IsDBNull(reader.GetOrdinal("complaint_status")))
                         {
                             Status = ComplaintStatus.Created;
                         }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 0){
+                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 0)
+                        {
                             Status = ComplaintStatus.Created;
                         }
                         else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 1)
@@ -257,13 +241,13 @@ namespace Housesnitcher_GUI.DataHandling
                         {
                             Status = ComplaintStatus.Failed;
                         }
-                c.Status = Status;
-                allComp.Add(c);
+                        c.Status = Status;
+                        allComp.Add(c);
+                    }
+                }
             }
+            return allComp;
         }
-    }
-    return allComp;
-}
 
 
         public static List<Complaint> SpecificUserComplaints(User user)

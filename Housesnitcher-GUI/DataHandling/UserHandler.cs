@@ -1,5 +1,4 @@
-﻿using Housesnitcher_GUI.DataStorageAbstractions;
-using Housesnitcher_GUI.Models;
+﻿using Housesnitcher_GUI.Models;
 using System.Data.SqlClient;
 
 namespace Housesnitcher_GUI.DataHandling
@@ -50,12 +49,13 @@ namespace Housesnitcher_GUI.DataHandling
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             var user = new User(username, unhashedPassword);
-            if (username == "Admin" && unhashedPassword == "admin") { 
+            if (username == "Admin" && unhashedPassword == "admin")
+            {
                 user.AuthLevel = ScopeLevel.Admin;
             }
             return user;
         }
-    
+
 
         public static User? LogIn(string username, string password)
         {
