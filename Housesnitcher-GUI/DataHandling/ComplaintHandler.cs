@@ -34,8 +34,6 @@ namespace Housesnitcher_GUI.DataHandling
                 }
                 connection.Close();
             }
-
-
             try
             {
                 string query = "Insert into complaints (title, complaint_description, username, complaint_type, date_happened, date_created, complaint_status) values (@title, @complaint_descr, @username, @complaint_type, @date_happened, @date_created, @status)";
@@ -130,6 +128,19 @@ namespace Housesnitcher_GUI.DataHandling
                 return null;
             }
 
+<<<<<<< HEAD
+=======
+        public static List<Complaint> AllComplaints()
+        {
+            List<Complaint> allComplaints = new List<Complaint>();
+
+
+            using(SqlConnection )
+
+
+                //https://stackoverflow.com/questions/16856687/getting-data-from-sql-and-putting-in-a-list
+                return allComplaints;
+>>>>>>> 95318e7d6747502c0738f93bff9620e2b2cd9949
         }
         //private static Complaint? BumpStatus(Complaint complaint)
         //{
