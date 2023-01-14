@@ -67,15 +67,49 @@ namespace Housesnitcher_GUI.DataHandling
             return BumpStatus(complaint);
         }
         // you want to definitely update the form after using this method.
+        //public static Complaint? ReviewComplaint(Complaint complaint, string feedback)
+        //{
+        //    if (complaint.Status != ComplaintStatus.Acknowledged)
+        //    {
+        //        return null;
+        //    }
+        //    complaint.ComplaintFeedback = feedback;
+        //    return BumpStatus(complaint);
+        //}
         public static Complaint? ReviewComplaint(Complaint complaint, string feedback)
         {
-            if (complaint.Status != ComplaintStatus.Acknowledged)
+            using (var connection = new SqlConnection(_connection))
             {
-                return null;
+                connection.Open();
+
+                // check if complaint exists and has Acknowledged status
+                var selectSql = "SELECT COUNT(*) FROM complaints WHERE title = @Title AND complaint_description = @Description AND username = @Username AND complaint_type = @Type AND complaint_status = @Status";
+                var selectCommand = new SqlCommand(selectSql, connection);
+                selectCommand.Parameters.AddWithValue("@Title", complaint.Title);
+                selectCommand.Parameters.AddWithValue("@Description", complaint.Description);
+                selectCommand.Parameters.AddWithValue("@Username", complaint.Username);
+                selectCommand.Parameters.AddWithValue("@Type", complaint.Type);
+                selectCommand.Parameters.AddWithValue("@Status", ComplaintStatus.Acknowledged);
+                var count = (int)selectCommand.ExecuteScalar();
+                if (count == 0)
+                {
+                    return null;
+                }
+
+                // update complaint_feedback
+                var updateSql = "UPDATE complaints SET complaint_feedback = @Feedback WHERE title = @Title AND complaint_description = @Description AND username = @Username AND complaint_type = @Type";
+                var updateCommand = new SqlCommand(updateSql, connection);
+                updateCommand.Parameters.AddWithValue("@Title", complaint.Title);
+                updateCommand.Parameters.AddWithValue("@Description", complaint.Description);
+                updateCommand.Parameters.AddWithValue("@Username", complaint.Username);
+                updateCommand.Parameters.AddWithValue("@Type", complaint.Type);
+                updateCommand.Parameters.AddWithValue("@Feedback", feedback);
+                updateCommand.ExecuteNonQuery();
+
+                return BumpStatus(complaint);
             }
-            complaint.ComplaintFeedback = feedback;
-            return BumpStatus(complaint);
         }
+
         public static Complaint? ResolveComplaint(Complaint complaint)
         {
             if (complaint.Status != ComplaintStatus.Reviewed)
