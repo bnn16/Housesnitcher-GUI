@@ -45,7 +45,8 @@ namespace Housesnitcher_GUI.GUI.Controls
         }
         public string Username
         {
-            get {
+            get
+            {
                 return lblAssign.Text;
             }
         }

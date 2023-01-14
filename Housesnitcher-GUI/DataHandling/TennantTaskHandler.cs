@@ -86,11 +86,11 @@ namespace Housesnitcher_GUI.DataHandling
                         allTasks.Add(t);
 
 
-                       
+
                     }
                     return allTasks;
                 }
             }
         }
     }
-} 
+}
