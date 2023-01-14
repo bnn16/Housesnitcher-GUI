@@ -1,4 +1,5 @@
 using Housesnitcher_GUI.DataHandling;
+using Housesnitcher_GUI.GUI.Controls;
 using Housesnitcher_GUI.GUI.Controls.Complaints;
 using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
@@ -15,6 +16,7 @@ namespace Housesnitcher_GUI.GUI.Forms
                 flpComplaintsHome.Controls.Clear();
                 flpMyComplaints.Controls.Clear();
                 flpInShort.Controls.Clear();
+                flowTasksHome.Controls.Clear();
                 cbType.Items.Clear();
                 foreach (var type in State.complaintTypes)
                 {
@@ -26,6 +28,11 @@ namespace Housesnitcher_GUI.GUI.Forms
                 foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
                 {
                     flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
+                }
+
+                foreach (var task in TennantTaskHandler.AllTasks().Take(10))
+                {
+                    flowTasksHome.Controls.Add(new TaskControl(task));
                 }
 
                 // populate the user-specific page
@@ -99,6 +106,11 @@ namespace Housesnitcher_GUI.GUI.Forms
         private void HomeTabControl_Selected(object sender, TabControlEventArgs e)
         {
             HydratePages();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new CreateTaskForm().Show();
         }
     }
 }

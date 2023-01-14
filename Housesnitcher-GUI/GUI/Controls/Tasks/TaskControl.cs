@@ -43,6 +43,12 @@ namespace Housesnitcher_GUI.GUI.Controls
                 return rtbDescription.Text;
             }
         }
+        public string Username
+        {
+            get {
+                return lblAssign.Text;
+            }
+        }
         public TennantTask UpdateUsingObject
         {
             set
@@ -51,6 +57,7 @@ namespace Housesnitcher_GUI.GUI.Controls
                 lblDateReference.Text = value.DateDue.ToString();
                 lblStatus.Text = value.Status.ToString();
                 lblTitle.Text = value.Title;
+                lblAssign.Text = value.Username;
                 rtbDescription.Text = value.Description;
                 PaintColor(value.Status);
             }
@@ -63,6 +70,7 @@ namespace Housesnitcher_GUI.GUI.Controls
             lblDateReference.Text = task.DateDue.ToString();
             lblStatus.Text = task.Status.ToString();
             lblTitle.Text = task.Title;
+            lblAssign.Text = task.Username;
             rtbDescription.Text = task.Description;
             PaintColor(task.Status);
         }
