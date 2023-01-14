@@ -66,16 +66,6 @@ namespace Housesnitcher_GUI.DataHandling
             }
             return BumpStatus(complaint);
         }
-        // you want to definitely update the form after using this method.
-        //public static Complaint? ReviewComplaint(Complaint complaint, string feedback)
-        //{
-        //    if (complaint.Status != ComplaintStatus.Acknowledged)
-        //    {
-        //        return null;
-        //    }
-        //    complaint.ComplaintFeedback = feedback;
-        //    return BumpStatus(complaint);
-        //}
         public static Complaint? ReviewComplaint(Complaint complaint, string feedback)
         {
             using (var connection = new SqlConnection(_connection))
@@ -233,7 +223,7 @@ namespace Housesnitcher_GUI.DataHandling
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("select * from complaints", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM complaints ORDER BY id DESC", connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
