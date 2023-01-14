@@ -71,9 +71,16 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
         private void btnAcknowledge_Click(object sender, EventArgs e)
         {
             var ret = ComplaintHandler.AcknowledgeComplaint(ComplaintControlView.StoredComplaint);
-            _ = ret ?? throw new NullReferenceException();
-            UpdateUsingObject = ret;
+            if (ret == null)
+            {
+                MessageBox.Show("Complaint not found.");
+            }
+            else
+            {
+                UpdateUsingObject = ret;
+            }
         }
+
 
         private void btnConfirmReview_Click(object sender, EventArgs e)
         {

@@ -1,33 +1,77 @@
-﻿using Housesnitcher_GUI.DataStorageAbstractions;
-using Housesnitcher_GUI.Models;
+﻿using Housesnitcher_GUI.Models;
+using System.Data.SqlClient;
 
 namespace Housesnitcher_GUI.DataHandling
 {
     public static class UserHandler
     {
+        private static readonly string _connection = "data source = MSI\\SQLEXPRESS; database=Group Project; integrated security=True";
         public static User? CreateUser(string username, string unhashedPassword)
         {
-            if (UserStore.Users.Find(x => x.Username == username) != null)
+            using (SqlConnection connection = new SqlConnection(_connection))
             {
-                return null;
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("select count(*) from users where username = @username and pass = @pass", connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@pass", unhashedPassword);
+
+                    int UserExist = (int)command.ExecuteScalar();
+
+                    if (UserExist > 0)
+                    {
+                        MessageBox.Show("User Already Exists");
+                        return null;
+
+                    }
+                }
+                connection.Close();
             }
+
+
+            try
+            {
+                string query = "Insert into users (username, pass) values (@username, @pass)";
+                using (SqlConnection connection = new SqlConnection(_connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@pass", unhashedPassword);
+                        command.ExecuteNonQuery();
+
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             var user = new User(username, unhashedPassword);
-            UserStore.Users.Add(user);
+            if (username == "Admin" && unhashedPassword == "admin")
+            {
+                user.AuthLevel = ScopeLevel.Admin;
+            }
             return user;
         }
 
+
         public static User? LogIn(string username, string password)
         {
-            var user = UserStore.Users.Find(x => x.Username == username);
-            if (user == null)
-            {
-                return null;
-            }
+            //var user = UserStore.Users.Find(x => x.Username == username);
 
-            if (BCrypt.Net.BCrypt.Verify(password, user.Password))
-            {
-                return user;
-            }
+
+            //if (user == null)
+            //{
+            //    return null;
+            //}
+
+            //if (BCrypt.Net.BCrypt.Verify(password, user.Password))
+            //{
+            //    return user;
+            //}
+            //return null;
             return null;
         }
     }
