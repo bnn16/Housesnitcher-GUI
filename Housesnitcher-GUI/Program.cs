@@ -19,6 +19,13 @@ namespace Housesnitcher_GUI
 
             // put some dummy data here if you want to test out the app.
 
+            var root = Directory.GetCurrentDirectory();
+            var dotenv = Path.Combine(root, "..\\..\\..\\..\\");
+            dotenv = Path.GetFullPath(Path.Combine(dotenv, ".env"));
+            DotEnv.Load(dotenv);
+            State.ConnectionString = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__CONNECTIONSTRING");
+            State.DataSource = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__DATASOURCE");
+
             var user = new User("Admin", "admin");
             user.AuthLevel = ScopeLevel.Admin;
             UserStore.Users.Add(user);
