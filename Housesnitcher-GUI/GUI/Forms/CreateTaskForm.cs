@@ -1,17 +1,6 @@
 ﻿using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Housesnitcher_GUI.GUI.Forms
 {
@@ -27,7 +16,8 @@ namespace Housesnitcher_GUI.GUI.Forms
 
         private void CreateTaskForm_Load(object sender, EventArgs e)
         {
-            foreach (var task in State.complaintTypes) {
+            foreach (var task in State.complaintTypes)
+            {
                 cmbTasks.Items.Add(task);
             }
 
@@ -49,14 +39,15 @@ namespace Housesnitcher_GUI.GUI.Forms
                 }
             }
 
-            foreach (var username in usernames) { 
+            foreach (var username in usernames)
+            {
                 cmbUsers.Items.Add(username);
             }
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-           TennantTask newTask = new TennantTask(txtBoxTaskTitle.Text,txtBoxTaskDescription.Text,cmbUsers.Text,cmbTasks.Text, null ,dateTimePicker1.Value);
+            TennantTask newTask = new TennantTask(txtBoxTaskTitle.Text, txtBoxTaskDescription.Text, cmbUsers.Text, cmbTasks.Text, null, dateTimePicker1.Value);
 
             try
             {
@@ -79,7 +70,8 @@ namespace Housesnitcher_GUI.GUI.Forms
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            finally {
+            finally
+            {
                 MessageBox.Show("Task Created!", "Success");
             }
         }

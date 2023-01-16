@@ -42,9 +42,17 @@ namespace Housesnitcher_GUI.GUI.Controls.Complaints
                     break;
                 case ComplaintStatus.Resolved:
                     btnInvalidate.Enabled = false;
+                    btnAcknowledge.Visible = false;
+                    btnInvalidate.Visible = false;
+                    btnResolve.Visible = false;
+                    btnReview.Visible = false;
                     break;
                 case ComplaintStatus.Failed:
                     btnInvalidate.Enabled = false;
+                    btnAcknowledge.Visible = false;
+                    btnInvalidate.Visible = false;
+                    btnResolve.Visible = false;
+                    btnReview.Visible = false;
                     break;
             }
         }
