@@ -10,7 +10,7 @@
         public DateTime DateDue { get; set; }
         public DateTime DateCreated { get; set; }
 
-        public TennantTask(string title, string description, string username, string type, string status, DateTime dateDue)
+        public TennantTask(string title, string description, string username, string type, DateTime dateDue)
         {
             Title = title;
             Description = description;
@@ -20,5 +20,16 @@
             DateDue = dateDue;
             DateCreated = DateTime.Now;
         }
+        public TennantTask(string title, string description, string username, string type, TennantTaskStatus status, DateTime dateDue, DateTime dateCreated)
+        {
+            Title = title;
+            Description = description;
+            Username = username;
+            Type = type;
+            Status = status;
+            DateDue = dateDue;
+            DateCreated = dateCreated;
+        }
+        public TennantTask() { }
     }
 }
