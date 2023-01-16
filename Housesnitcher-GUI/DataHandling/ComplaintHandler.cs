@@ -145,8 +145,6 @@ namespace Housesnitcher_GUI.DataHandling
                         }
                     }
                 }
-
-
                 return null;
             }
 
@@ -241,31 +239,14 @@ namespace Housesnitcher_GUI.DataHandling
                         {
                             Status = ComplaintStatus.Created;
                         }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 0)
+                        c.Status = reader.GetInt32(reader.GetOrdinal("complaint_status")) switch
                         {
-                            Status = ComplaintStatus.Created;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 1)
-                        {
-                            Status = ComplaintStatus.Acknowledged;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 2)
-                        {
-                            Status = ComplaintStatus.Reviewed;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 3)
-                        {
-                            Status = ComplaintStatus.Resolved;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("complaint_status")) == 4)
-                        {
-                            Status = ComplaintStatus.Failed;
-                        }
-                        else
-                        {
-                            Status = ComplaintStatus.Failed;
-                        }
-                        c.Status = Status;
+                            0 => ComplaintStatus.Created,
+                            1 => ComplaintStatus.Acknowledged,
+                            2 => ComplaintStatus.Reviewed,
+                            3 => ComplaintStatus.Failed,
+                            _ => ComplaintStatus.Created
+                        };
                         allComp.Add(c);
                     }
                 }
