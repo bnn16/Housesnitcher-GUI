@@ -1,4 +1,4 @@
-﻿namespace Housesnitcher_GUI.GUI.Controls
+﻿namespace Housesnitcher_GUI.GUI.Controls.Tasks
 {
     partial class TaskControl
     {
