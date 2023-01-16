@@ -4,56 +4,20 @@ namespace Housesnitcher_GUI.GUI.Controls
 {
     public partial class TaskControl : UserControl
     {
-        public DateTime Date
+        private TennantTask _task;
+        public TennantTask StoredTask
         {
             get
             {
-                return DateTime.Parse(lblDate.Text);
+                return _task;
             }
         }
-        public DateTime DateReference
-        {
-            get
-            {
-                return DateTime.Parse(lblDateReference.Text);
-            }
-        }
-        public TennantTaskStatus Status
-        {
-            get
-            {
-                return Enum.Parse<TennantTaskStatus>(lblStatus.Text);
-            }
-            set
-            {
-                lblStatus.Text = value.ToString();
-            }
-        }
-        public string Title
-        {
-            get
-            {
-                return lblTitle.Text;
-            }
-        }
-        public string Description
-        {
-            get
-            {
-                return rtbDescription.Text;
-            }
-        }
-        public string Username
-        {
-            get
-            {
-                return lblAssign.Text;
-            }
-        }
+        
         public TennantTask UpdateUsingObject
         {
             set
             {
+                _task = value;
                 lblDate.Text = value.DateCreated.ToString();
                 lblDateReference.Text = value.DateDue.ToString();
                 lblStatus.Text = value.Status.ToString();
@@ -63,7 +27,11 @@ namespace Housesnitcher_GUI.GUI.Controls
                 PaintColor(value.Status);
             }
         }
-
+        // remember to give data using the UpdateUsingObject property
+        public TaskControl()
+        {
+            InitializeComponent();
+        }
         public TaskControl(TennantTask task)
         {
             InitializeComponent();
