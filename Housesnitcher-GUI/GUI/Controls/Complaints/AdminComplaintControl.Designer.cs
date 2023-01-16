@@ -34,7 +34,7 @@
             this.btnResolve = new System.Windows.Forms.Button();
             this.btnInvalidate = new System.Windows.Forms.Button();
             this.lblComplainer = new System.Windows.Forms.Label();
-            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
+            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.Complaints.ComplaintControl();
             this.ResolvePanel = new System.Windows.Forms.Panel();
             this.btnConfirmReview = new System.Windows.Forms.Button();
             this.tbReviewText = new System.Windows.Forms.RichTextBox();

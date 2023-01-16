@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
-            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.ComplaintControl();
+            this.ComplaintControlView = new Housesnitcher_GUI.GUI.Controls.Complaints.ComplaintControl();
             this.rtbFeedback = new System.Windows.Forms.RichTextBox();
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();

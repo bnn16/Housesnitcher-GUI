@@ -20,7 +20,7 @@ namespace Housesnitcher_GUI.GUI.Forms
                 // populate the homepage
                 foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
                 {
-                    flpComplaintsHome.Controls.Add(new AdminComplaintControl(complaint));
+                    flpComplaintsHome.Controls.Add(new ComplaintControl(complaint));
                 }
 
                 foreach (var task in TennantTaskHandler.AllTasks().Take(10))
@@ -32,6 +32,12 @@ namespace Housesnitcher_GUI.GUI.Forms
                 foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
                 {
                     flpInShort.Controls.Add(new CompactComplaintControl(complaint));
+                }
+
+                // populate adminstrator page
+                foreach (var complaint in ComplaintHandler.AllComplaints())
+                {
+                    flpAdminComplaints.Controls.Add(new AdminComplaintControl(complaint));
                 }
             }
         }

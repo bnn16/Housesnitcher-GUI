@@ -17,7 +17,7 @@
         {
             return $$"""
                     Username: {{Username}}
-                    PermissionLevel: {{AuthLevel}}
+                    Permission: {{AuthLevel}}
                     """;
         }
     }

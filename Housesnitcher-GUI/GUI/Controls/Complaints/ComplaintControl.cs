@@ -1,6 +1,6 @@
 ﻿using Housesnitcher_GUI.Models;
 
-namespace Housesnitcher_GUI.GUI.Controls
+namespace Housesnitcher_GUI.GUI.Controls.Complaints
 {
     public partial class ComplaintControl : UserControl
     {

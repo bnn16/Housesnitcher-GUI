@@ -43,8 +43,9 @@
             this.flpInShort = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLodgeComplaint = new System.Windows.Forms.Button();
             this.tpAdmin = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCreateTask = new System.Windows.Forms.Button();
+            this.flpAdminComplaints = new System.Windows.Forms.FlowLayoutPanel();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.tpHomepage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tpSelf.SuspendLayout();
+            this.pLodgeComplaint.SuspendLayout();
             this.tpAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,35 +232,44 @@
             // 
             // tpAdmin
             // 
-            this.tpAdmin.Controls.Add(this.label7);
-            this.tpAdmin.Controls.Add(this.button1);
-            this.tpAdmin.Location = new System.Drawing.Point(4, 29);
-            this.tpAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tpAdmin.Controls.Add(this.flowLayoutPanel1);
+            this.tpAdmin.Controls.Add(this.btnCreateTask);
+            this.tpAdmin.Controls.Add(this.flpAdminComplaints);
+            this.tpAdmin.Location = new System.Drawing.Point(4, 24);
             this.tpAdmin.Name = "tpAdmin";
             this.tpAdmin.Size = new System.Drawing.Size(1439, 780);
             this.tpAdmin.TabIndex = 2;
             this.tpAdmin.Text = "Administration";
             this.tpAdmin.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // flowLayoutPanel1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(22, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(353, 41);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Add a task for a student.";
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(435, 58);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(408, 476);
+            this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
-            // button1
+            // btnCreateTask
             // 
-            this.button1.Location = new System.Drawing.Point(22, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add a Task ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreateTask.Location = new System.Drawing.Point(435, 13);
+            this.btnCreateTask.Name = "btnCreateTask";
+            this.btnCreateTask.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateTask.TabIndex = 4;
+            this.btnCreateTask.Text = "Create Task";
+            this.btnCreateTask.UseVisualStyleBackColor = true;
+            // 
+            // flpAdminComplaints
+            // 
+            this.flpAdminComplaints.AutoScroll = true;
+            this.flpAdminComplaints.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAdminComplaints.Location = new System.Drawing.Point(8, 58);
+            this.flpAdminComplaints.Name = "flpAdminComplaints";
+            this.flpAdminComplaints.Size = new System.Drawing.Size(423, 476);
+            this.flpAdminComplaints.TabIndex = 3;
+            this.flpAdminComplaints.WrapContents = false;
             // 
             // MainForm
             // 
@@ -276,8 +287,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tpSelf.ResumeLayout(false);
             this.tpSelf.PerformLayout();
+            this.pLodgeComplaint.ResumeLayout(false);
+            this.pLodgeComplaint.PerformLayout();
             this.tpAdmin.ResumeLayout(false);
-            this.tpAdmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -294,8 +306,8 @@
         private Button btnLogout;
         private TableLayoutPanel tableLayoutPanel1;
         private Label lblUserData;
-        private FlowLayoutPanel flowTasksHome;
-        private Button button1;
-        private Label label7;
+        private FlowLayoutPanel flpAdminComplaints;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnCreateTask;
     }
 }
