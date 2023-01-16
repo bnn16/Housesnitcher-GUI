@@ -52,6 +52,7 @@
             this.rtbDescription.Location = new System.Drawing.Point(0, 76);
             this.rtbDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtbDescription.Name = "rtbDescription";
+            this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(343, 128);
             this.rtbDescription.TabIndex = 8;
             this.rtbDescription.Text = "TaskRtbDescription";
@@ -96,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.lblAssign);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.rtbDescription);
@@ -104,7 +106,7 @@
             this.Controls.Add(this.lblTitle);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TaskControl";
-            this.Size = new System.Drawing.Size(343, 267);
+            this.Size = new System.Drawing.Size(339, 263);
             this.ResumeLayout(false);
             this.PerformLayout();
 

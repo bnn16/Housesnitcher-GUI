@@ -59,19 +59,32 @@ namespace Housesnitcher_GUI.DataHandling
 
         public static User? LogIn(string username, string password)
         {
-            //var user = UserStore.Users.Find(x => x.Username == username);
+            try
+            {
+                string query = "Select * from users where username = @username and pass = @pass";
 
+                using (SqlConnection connection = new SqlConnection(_connection))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
 
-            //if (user == null)
-            //{
-            //    return null;
-            //}
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@pass", password);
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            var user = new User(username, password);
+                            return user;
+                        }
+                        else {
+                            return null;
+                        }
+                    }
 
-            //if (BCrypt.Net.BCrypt.Verify(password, user.Password))
-            //{
-            //    return user;
-            //}
-            //return null;
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return null;
         }
     }
