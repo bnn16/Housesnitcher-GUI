@@ -1,5 +1,4 @@
 ﻿using Housesnitcher_GUI.Models;
-using System.Configuration;
 
 namespace Housesnitcher_GUI.StateManagement
 {

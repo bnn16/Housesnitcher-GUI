@@ -1,8 +1,6 @@
 ﻿using Housesnitcher_GUI.DataHandling;
 using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
-using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Housesnitcher_GUI.GUI.Forms
 {

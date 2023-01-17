@@ -12,7 +12,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
                 return _task;
             }
         }
-        
+
         public TennantTask UpdateUsingObject
         {
             set
