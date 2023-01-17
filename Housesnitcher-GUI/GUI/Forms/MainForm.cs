@@ -1,8 +1,7 @@
 using Housesnitcher_GUI.DataHandling;
-using Housesnitcher_GUI.GUI.Controls;
+using Housesnitcher_GUI.GUI.Controls.Tasks;
 using Housesnitcher_GUI.GUI.Controls.Complaints;
 using Housesnitcher_GUI.Models;
-using Housesnitcher_GUI.StateManagement;
 
 namespace Housesnitcher_GUI.GUI.Forms
 {
@@ -16,6 +15,7 @@ namespace Housesnitcher_GUI.GUI.Forms
                 flpComplaintsHome.Controls.Clear();
                 flpInShort.Controls.Clear();
                 flowTasksHome.Controls.Clear();
+                flpAdminComplaints.Controls.Clear();
 
                 // populate the homepage
                 foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
@@ -25,7 +25,7 @@ namespace Housesnitcher_GUI.GUI.Forms
 
                 foreach (var task in TennantTaskHandler.AllTasks().Take(10))
                 {
-                    flowTasksHome.Controls.Add(new TaskControl(task));
+                    flowTasksHome.Controls.Add(new UserTaskControl() { UpdateUsingObject = task });
                 }
 
                 // populate in-short section
@@ -38,6 +38,11 @@ namespace Housesnitcher_GUI.GUI.Forms
                 foreach (var complaint in ComplaintHandler.AllComplaints())
                 {
                     flpAdminComplaints.Controls.Add(new AdminComplaintControl(complaint));
+                }
+
+                foreach (var task in TennantTaskHandler.AllTasks())
+                {
+                    flowLayoutPanel1.Controls.Add(new TaskControl() { UpdateUsingObject = task });
                 }
             }
         }
@@ -91,6 +96,11 @@ namespace Housesnitcher_GUI.GUI.Forms
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            new CreateTaskForm().Show();
+        }
+
+        private void btnCreateTask_Click(object sender, EventArgs e)
         {
             new CreateTaskForm().Show();
         }
