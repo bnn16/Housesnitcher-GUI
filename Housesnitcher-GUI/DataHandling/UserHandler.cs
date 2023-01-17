@@ -5,8 +5,17 @@ namespace Housesnitcher_GUI.DataHandling
 {
     public static class UserHandler
     {
-        private static readonly string _connection = "data source = MSI\\SQLEXPRESS; database=Group Project; integrated security=True";
+        private static readonly string _connection = $"data source = {StateManagement.State.DataSource}; database={StateManagement.State.ConnectionString}; integrated security=SSPI";
         public static User? CreateUser(string username, string unhashedPassword)
+        {
+            var user = new User(username, unhashedPassword);
+            return _createUser(user.Username, user.Password);
+        }
+        public static User? CreateUser(User user)
+        {
+            return _createUser(user.Username, user.Password);
+        }
+        private static User? _createUser(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(_connection))
             {
@@ -14,7 +23,7 @@ namespace Housesnitcher_GUI.DataHandling
                 using (SqlCommand command = new SqlCommand("select count(*) from users where username = @username and pass = @pass", connection))
                 {
                     command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@pass", unhashedPassword);
+                    command.Parameters.AddWithValue("@pass", password);
 
                     int UserExist = (int)command.ExecuteScalar();
 
@@ -28,7 +37,6 @@ namespace Housesnitcher_GUI.DataHandling
                 connection.Close();
             }
 
-
             try
             {
                 string query = "Insert into users (username, pass) values (@username, @pass)";
@@ -40,7 +48,7 @@ namespace Housesnitcher_GUI.DataHandling
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@username", username);
-                        command.Parameters.AddWithValue("@pass", unhashedPassword);
+                        command.Parameters.AddWithValue("@pass", password);
                         command.ExecuteNonQuery();
 
                     }
@@ -48,15 +56,33 @@ namespace Housesnitcher_GUI.DataHandling
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            var user = new User(username, unhashedPassword);
-            if (username == "Admin" && unhashedPassword == "admin")
+            var user = new User(username, password);
+            if (username == "Admin" && password == "admin")
             {
                 user.AuthLevel = ScopeLevel.Admin;
             }
             return user;
         }
 
-
+        public static List<string> UsernamesList()
+        {
+            List<string> usernames = new List<string>();
+            using (SqlConnection connection = new SqlConnection(_connection))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT username FROM users", connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string username = (string)reader["username"];
+                        usernames.Add(username);
+                    }
+                }
+                connection.Close();
+            }
+            return usernames;
+        }
         public static User? LogIn(string username, string password)
         {
             try
@@ -77,7 +103,8 @@ namespace Housesnitcher_GUI.DataHandling
                             var user = new User(username, password);
                             return user;
                         }
-                        else {
+                        else
+                        {
                             return null;
                         }
                     }
