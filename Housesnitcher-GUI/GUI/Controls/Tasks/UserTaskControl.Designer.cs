@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TaskControlView = new Housesnitcher_GUI.GUI.Controls.TaskControl();
+            this.TaskControlView = new Housesnitcher_GUI.GUI.Controls.Tasks.TaskControl();
             this.btnComplete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 

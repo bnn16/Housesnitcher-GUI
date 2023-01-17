@@ -1,6 +1,6 @@
 ﻿using Housesnitcher_GUI.Models;
 
-namespace Housesnitcher_GUI.GUI.Controls
+namespace Housesnitcher_GUI.GUI.Controls.Tasks
 {
     public partial class TaskControl : UserControl
     {
