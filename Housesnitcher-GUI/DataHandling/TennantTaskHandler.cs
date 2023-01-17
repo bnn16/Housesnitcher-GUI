@@ -4,42 +4,41 @@ using System.Data.SqlClient;
 
 namespace Housesnitcher_GUI.DataHandling
 {
-
     public static class TennantTaskHandler
     {
-        public static bool AssignTask(Models.TennantTask task)
+        public static TennantTask? AssignTask(TennantTask task)
         {
             if (TennantTaskStore.tasks.Contains(task))
             {
-                return false;
+                return null;
             }
             TennantTaskStore.tasks.Add(task);
-            return true;
+            return task;
         }
-        private static readonly string _connection = "data source = MSI\\SQLEXPRESS; database=Group Project; integrated security=True";
-        public static bool CompleteTask(Models.TennantTask task)
+        private static readonly string _connection = $"data source = {StateManagement.State.DataSource}; database={StateManagement.State.ConnectionString}; integrated security=SSPI";
+        public static TennantTask? CompleteTask(TennantTask task)
         {
-            if (task.Status != Models.TennantTaskStatus.Assigned)
+            if (task.Status != TennantTaskStatus.Assigned)
             {
-                return false;
+                return null;
             }
-            BumpStatus(task);
-            return true;
+            return BumpStatus(task);
         }
-        public static bool FailTask(Models.TennantTask task)
+        public static TennantTask? FailTask(TennantTask task)
         {
             if (task.Status == Models.TennantTaskStatus.Failed)
             {
-                return false;
+                return null;
             }
             var idx = TennantTaskStore.tasks.FindIndex(x => x == task);
             TennantTaskStore.tasks[idx].Status = Models.TennantTaskStatus.Failed;
-            return true;
+            return TennantTaskStore.tasks[idx];
         }
-        private static void BumpStatus(Models.TennantTask task)
+        private static TennantTask? BumpStatus(Models.TennantTask task)
         {
             var idx = TennantTaskStore.tasks.FindIndex(x => x == task);
             TennantTaskStore.tasks[idx].Status++;
+            return TennantTaskStore.tasks[idx];
         }
 
         public static List<TennantTask> AllTasks()
@@ -56,37 +55,24 @@ namespace Housesnitcher_GUI.DataHandling
                         string title = (string)reader["title"];
                         string task_desc = (string)reader["task_description"];
                         string user = (string)reader["username"];
-                        string task_type = (string)reader["task_type"];
-                        string task_feedback = reader["task_status"] is DBNull ? null : reader["task_status"].ToString();
-                        DateTime date_due = (DateTime)reader["dateDue"];
-                        TennantTask t = new TennantTask(title, task_desc, user, task_type, task_feedback, date_due);
-                        TennantTaskStatus Status;
+                        string taskType = (string)reader["task_type"];
+                        TennantTaskStatus taskStatus = Enum.Parse<TennantTaskStatus>(reader["task_status"] is DBNull ? null : reader["task_status"].ToString());
+                        DateTime dateDue = (DateTime)reader["dateDue"];
+                        DateTime dateCreated = (DateTime)reader["dateCreated"];
+                        TennantTask t = new TennantTask(title, task_desc, user, taskType, taskStatus, dateDue, dateCreated);
 
                         if (reader.IsDBNull(reader.GetOrdinal("task_status")))
                         {
-                            Status = TennantTaskStatus.Assigned;
+                            t.Status = TennantTaskStatus.Assigned;
                         }
-                        else if (reader.GetInt32(reader.GetOrdinal("task_status")) == 0)
+                        t.Status = reader.GetInt32(reader.GetOrdinal("task_status")) switch
                         {
-                            Status = TennantTaskStatus.Assigned;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("task_status")) == 1)
-                        {
-                            Status = TennantTaskStatus.Completed;
-                        }
-                        else if (reader.GetInt32(reader.GetOrdinal("task_status")) == 2)
-                        {
-                            Status = TennantTaskStatus.Failed;
-                        }
-                        else
-                        {
-                            Status = TennantTaskStatus.Failed;
-                        }
-                        t.Status = Status;
+                            0 => TennantTaskStatus.Assigned,
+                            2 => TennantTaskStatus.Completed,
+                            3 => TennantTaskStatus.Failed,
+                            _ => TennantTaskStatus.Assigned
+                        };
                         allTasks.Add(t);
-
-
-
                     }
                     return allTasks;
                 }
