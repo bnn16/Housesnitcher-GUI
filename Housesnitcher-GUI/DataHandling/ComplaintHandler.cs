@@ -7,8 +7,7 @@ namespace Housesnitcher_GUI.DataHandling
 
     public static class ComplaintHandler
     {
-        private static readonly string _connection = "data source = MSI\\SQLEXPRESS; database=Group Project; integrated security=True";
-
+        private static readonly string _connection = $"data source = {StateManagement.State.DataSource}; database={StateManagement.State.ConnectionString}; integrated security=SSPI";
         public static Complaint? LodgeComplaint(Complaint complaint)
         {
             using (SqlConnection connection = new SqlConnection(_connection))

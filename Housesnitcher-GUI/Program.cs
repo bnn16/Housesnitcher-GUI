@@ -1,3 +1,4 @@
+using Housesnitcher_GUI.DataHandling;
 using Housesnitcher_GUI.DataStorageAbstractions;
 using Housesnitcher_GUI.GUI.Forms;
 using Housesnitcher_GUI.Models;
@@ -36,6 +37,7 @@ namespace Housesnitcher_GUI
             State.complaintTypes.Add("Maintenance");
             State.complaintTypes.Add("Temperature");
             State.complaintTypes.Add("Kitchen");
+            UserHandler.CreateUser("Admin", "admin");
 
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint2", "test description #2", "Test", "Laundry", null, DateTime.UnixEpoch));
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint3", "test description #3", "Test", "Laundry", null, DateTime.UnixEpoch));
