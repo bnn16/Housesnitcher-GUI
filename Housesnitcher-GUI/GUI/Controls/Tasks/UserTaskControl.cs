@@ -10,6 +10,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
             set
             {
                 TaskControlView.UpdateUsingObject = value;
+                ActivateButtonTask();
             }
         }
         public UserTaskControl()
@@ -17,9 +18,24 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
             InitializeComponent();
         }
 
-        private void btnComplete_Click(object sender, EventArgs e)
+        private void ActivateButtonTask()
+        {
+            btnComplete.Enabled = true;
+            switch (TaskControlView.StoredTask.Status)
+            {
+                case TennantTaskStatus.Assigned:
+                    btnComplete.Enabled = true;
+                    break;
+                case TennantTaskStatus.Completed:
+                    btnComplete.Enabled = false;
+                    break;
+            }
+        }
+
+            private void btnComplete_Click(object sender, EventArgs e)
         {
             var ret = TennantTaskHandler.CompleteTask(TaskControlView.StoredTask);
+
             _ = ret ?? throw new NullReferenceException();
             UpdateUsingObject = ret;
         }

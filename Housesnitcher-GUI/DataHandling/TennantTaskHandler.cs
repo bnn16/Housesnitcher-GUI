@@ -152,10 +152,9 @@ namespace Housesnitcher_GUI.DataHandling
                         string task_desc = (string)reader["task_description"];
                         string user = (string)reader["username"];
                         string taskType = (string)reader["task_type"];
-                        TennantTaskStatus taskStatus = Enum.Parse<TennantTaskStatus>(reader["task_status"] is DBNull ? null : reader["task_status"].ToString());
                         DateTime dateDue = (DateTime)reader["dateDue"];
                         DateTime dateCreated = (DateTime)reader["dateCreated"];
-                        TennantTask t = new TennantTask(title, task_desc, user, taskType, taskStatus, dateDue, dateCreated);
+                        TennantTask t = new TennantTask(title, task_desc, user, taskType, dateDue);
 
                         if (reader.IsDBNull(reader.GetOrdinal("task_status")))
                         {
