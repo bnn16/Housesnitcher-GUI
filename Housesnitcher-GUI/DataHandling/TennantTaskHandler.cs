@@ -163,8 +163,8 @@ namespace Housesnitcher_GUI.DataHandling
                         t.Status = reader.GetInt32(reader.GetOrdinal("task_status")) switch
                         {
                             0 => TennantTaskStatus.Assigned,
-                            2 => TennantTaskStatus.Completed,
-                            3 => TennantTaskStatus.Failed,
+                            1 => TennantTaskStatus.Completed,
+                            2 => TennantTaskStatus.Failed,
                             _ => TennantTaskStatus.Assigned
                         };
                         allTasks.Add(t);
@@ -172,6 +172,14 @@ namespace Housesnitcher_GUI.DataHandling
                     return allTasks;
                 }
             }
+        }
+        public static List<TennantTask> SpecificUserTask(User user)
+        {
+            return Filter(user.Username);
+        }
+        private static List<TennantTask> Filter(string username)
+        {
+            return AllTasks().FindAll(x => x.Username == username);
         }
     }
 }

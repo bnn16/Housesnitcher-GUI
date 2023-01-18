@@ -16,6 +16,7 @@ namespace Housesnitcher_GUI.GUI.Forms
                 flpInShort.Controls.Clear();
                 flowTasksHome.Controls.Clear();
                 flpAdminComplaints.Controls.Clear();
+                flpMyTasks.Controls.Clear();
 
                 // populate the homepage
                 foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))
@@ -25,13 +26,17 @@ namespace Housesnitcher_GUI.GUI.Forms
 
                 foreach (var task in TennantTaskHandler.AllTasks().Take(10))
                 {
-                    flowTasksHome.Controls.Add(new UserTaskControl() { UpdateUsingObject = task });
+                    flowTasksHome.Controls.Add(new TaskControl(task));
                 }
 
                 // populate in-short section
                 foreach (var complaint in ComplaintHandler.SpecificUserComplaints(_user))
                 {
                     flpInShort.Controls.Add(new CompactComplaintControl(complaint));
+                }
+
+                foreach (var task in TennantTaskHandler.SpecificUserTask(_user)) {
+                    flpMyTasks.Controls.Add(new UserTaskControl(_user.Username) { UpdateUsingObject = task});
                 }
 
                 // populate adminstrator page

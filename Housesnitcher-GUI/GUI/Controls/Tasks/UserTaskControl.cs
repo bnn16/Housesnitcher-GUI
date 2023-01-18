@@ -1,34 +1,69 @@
 ﻿using Housesnitcher_GUI.DataHandling;
 using Housesnitcher_GUI.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Housesnitcher_GUI.GUI.Controls.Tasks
 {
     public partial class UserTaskControl : UserControl
     {
+        private string _user;
+
         public TennantTask UpdateUsingObject
         {
             set
             {
                 TaskControlView.UpdateUsingObject = value;
                 ActivateButtonTask();
-            }
+            }   
         }
-        public UserTaskControl()
+        public UserTaskControl(string user)
         {
             InitializeComponent();
+            this._user = user;
+        }
+        public UserTaskControl(TennantTask task) {
+            InitializeComponent();
+            UpdateUsingObject = task;
         }
 
         private void ActivateButtonTask()
         {
-            btnComplete.Enabled = true;
-            switch (TaskControlView.StoredTask.Status)
+            if (_user == "Admin")
             {
-                case TennantTaskStatus.Assigned:
-                    btnComplete.Enabled = true;
-                    break;
-                case TennantTaskStatus.Completed:
+                btnComplete.Enabled = true;
+                switch (TaskControlView.StoredTask.Status)
+                {
+                    case TennantTaskStatus.Assigned:
+                        btnComplete.Enabled = true;
+                        break;
+                    case TennantTaskStatus.Completed:
+                        btnComplete.Enabled = false;
+                        break;
+                }
+                if (TaskControlView.StoredTask.Status == TennantTaskStatus.Failed)
+                {
                     btnComplete.Enabled = false;
-                    break;
+                }
+            }
+            else
+            {
+                if (TaskControlView.StoredTask.Username == _user)
+                {
+                    btnComplete.Enabled = true;
+                    switch (TaskControlView.StoredTask.Status)
+                    {
+                        case TennantTaskStatus.Assigned:
+                            btnComplete.Enabled = true;
+                            break;
+                        case TennantTaskStatus.Completed:
+                            btnComplete.Enabled = false;
+                            break;
+                    }
+                }
+                else
+                {
+                    btnComplete.Enabled = false;
+                }
             }
         }
 
