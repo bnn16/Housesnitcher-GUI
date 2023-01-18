@@ -10,7 +10,7 @@ namespace Housesnitcher_GUI.StateManagement
         // server-side state
         public static List<string> complaintTypes = new();
         public static List<string> TaskTypes = new();
-        public static string ConnectionString = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__CONNECTIONSTRING");
-        public static string DataSource = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__DATASOURCE");
+        public static string ConnectionString = Environment.GetEnvironmentVariable("MSI\\SQLEXPRESS;");
+        public static string DataSource = Environment.GetEnvironmentVariable("Group Project;");
     }
 }

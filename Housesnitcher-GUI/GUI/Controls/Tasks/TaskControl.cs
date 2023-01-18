@@ -32,6 +32,10 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
         {
             InitializeComponent();
         }
+        public TaskControl(TennantTask task) {
+            InitializeComponent();
+            UpdateUsingObject = task;
+        }
         private void PaintColor(TennantTaskStatus status)
         {
             lblStatus.ForeColor = status switch

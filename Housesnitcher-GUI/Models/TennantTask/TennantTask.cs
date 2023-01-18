@@ -30,6 +30,5 @@
             DateDue = dateDue;
             DateCreated = dateCreated;
         }
-        public TennantTask() { }
     }
 }

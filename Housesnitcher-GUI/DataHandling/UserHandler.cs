@@ -5,7 +5,7 @@ namespace Housesnitcher_GUI.DataHandling
 {
     public static class UserHandler
     {
-        private static readonly string _connection = $"data source = {StateManagement.State.DataSource}; database={StateManagement.State.ConnectionString}; integrated security=SSPI";
+        private static readonly string _connection = $"data source = MSI\\SQLEXPRESS; database=Group Project; integrated security=SSPI";
         public static User? CreateUser(string username, string unhashedPassword)
         {
             var user = new User(username, unhashedPassword);
