@@ -24,8 +24,8 @@ namespace Housesnitcher_GUI
             var dotenv = Path.Combine(root, "..\\..\\..\\..\\");
             dotenv = Path.GetFullPath(Path.Combine(dotenv, ".env"));
             DotEnv.Load(dotenv);
-            State.ConnectionString = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__CONNECTIONSTRING");
-            State.DataSource = Environment.GetEnvironmentVariable("DATABASES__SQLSERVER__DATASOURCE");
+            State.ConnectionString = Environment.GetEnvironmentVariable("Group Project");
+            State.DataSource = Environment.GetEnvironmentVariable("MSI\\SQLEXPRESS");
 
             var user = new User("Admin", "admin");
             user.AuthLevel = ScopeLevel.Admin;
