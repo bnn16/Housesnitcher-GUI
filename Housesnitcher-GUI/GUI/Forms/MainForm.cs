@@ -101,7 +101,7 @@ namespace Housesnitcher_GUI.GUI.Forms
             }
 
             // keep this here, rules page, pls dont move stuff around
-            HomeTabControl.TabPages.Add(tabPage1);
+            HomeTabControl.TabPages.Add(RulesPage);
         }
 
         // logout button, duh.

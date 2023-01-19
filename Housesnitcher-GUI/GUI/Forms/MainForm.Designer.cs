@@ -59,7 +59,7 @@
             this.flpAdminTasks = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCreateTask = new System.Windows.Forms.Button();
             this.flpAdminComplaints = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.RulesPage = new System.Windows.Forms.TabPage();
             this.pLodgeComplaint = new System.Windows.Forms.Panel();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tpSelf.SuspendLayout();
             this.tpAdmin.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.RulesPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -155,12 +155,89 @@
             label7.TabIndex = 7;
             label7.Text = "Last 10 Announcements";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label8.Location = new System.Drawing.Point(562, 67);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(75, 31);
+            label8.TabIndex = 7;
+            label8.Text = "Rules:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label9.Location = new System.Drawing.Point(514, 119);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(295, 21);
+            label9.TabIndex = 8;
+            label9.Text = "#1: When assigned a task, do it on time.";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label10.Location = new System.Drawing.Point(514, 150);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(229, 21);
+            label10.TabIndex = 9;
+            label10.Text = "#2: If you find a bug, report it.";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label11.Location = new System.Drawing.Point(514, 180);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(279, 21);
+            label11.TabIndex = 10;
+            label11.Text = "#3: Do not leave the toilet unflushed.";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label12.Location = new System.Drawing.Point(514, 210);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(210, 21);
+            label12.TabIndex = 11;
+            label12.Text = "#4: Do not be loud at night.";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label13.Location = new System.Drawing.Point(514, 240);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(274, 21);
+            label13.TabIndex = 12;
+            label13.Text = "#5: Do not destroy the rooms\' paint.";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            label14.Location = new System.Drawing.Point(514, 271);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(266, 21);
+            label14.TabIndex = 13;
+            label14.Text = "#6: Clean the kitchen after yourself.";
+            // 
             // HomeTabControl
             // 
             this.HomeTabControl.Controls.Add(this.tpHomepage);
             this.HomeTabControl.Controls.Add(this.tpSelf);
             this.HomeTabControl.Controls.Add(this.tpAdmin);
-            this.HomeTabControl.Controls.Add(this.tabPage1);
+            this.HomeTabControl.Controls.Add(this.RulesPage);
             this.HomeTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HomeTabControl.Location = new System.Drawing.Point(0, 0);
             this.HomeTabControl.Name = "HomeTabControl";
@@ -370,22 +447,22 @@
             this.flpAdminComplaints.TabIndex = 3;
             this.flpAdminComplaints.WrapContents = false;
             // 
-            // tabPage1
+            // RulesPage
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.tabPage1.Controls.Add(label14);
-            this.tabPage1.Controls.Add(label13);
-            this.tabPage1.Controls.Add(label12);
-            this.tabPage1.Controls.Add(label11);
-            this.tabPage1.Controls.Add(label10);
-            this.tabPage1.Controls.Add(label9);
-            this.tabPage1.Controls.Add(label8);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1258, 582);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
+            this.RulesPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.RulesPage.Controls.Add(label14);
+            this.RulesPage.Controls.Add(label13);
+            this.RulesPage.Controls.Add(label12);
+            this.RulesPage.Controls.Add(label11);
+            this.RulesPage.Controls.Add(label10);
+            this.RulesPage.Controls.Add(label9);
+            this.RulesPage.Controls.Add(label8);
+            this.RulesPage.Location = new System.Drawing.Point(4, 24);
+            this.RulesPage.Name = "RulesPage";
+            this.RulesPage.Padding = new System.Windows.Forms.Padding(3);
+            this.RulesPage.Size = new System.Drawing.Size(1258, 582);
+            this.RulesPage.TabIndex = 3;
+            this.RulesPage.Text = "Rules";
             // 
             // pLodgeComplaint
             // 
@@ -393,83 +470,6 @@
             this.pLodgeComplaint.Name = "pLodgeComplaint";
             this.pLodgeComplaint.Size = new System.Drawing.Size(200, 100);
             this.pLodgeComplaint.TabIndex = 0;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label8.Location = new System.Drawing.Point(562, 67);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(75, 31);
-            label8.TabIndex = 7;
-            label8.Text = "Rules:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label9.Location = new System.Drawing.Point(514, 119);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(295, 21);
-            label9.TabIndex = 8;
-            label9.Text = "#1: When assigned a task, do it on time.";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label10.Location = new System.Drawing.Point(514, 150);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(229, 21);
-            label10.TabIndex = 9;
-            label10.Text = "#2: If you find a bug, report it.";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label11.Location = new System.Drawing.Point(514, 180);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(279, 21);
-            label11.TabIndex = 10;
-            label11.Text = "#3: Do not leave the toilet unflushed.";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label12.Location = new System.Drawing.Point(514, 210);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(210, 21);
-            label12.TabIndex = 11;
-            label12.Text = "#4: Do not be loud at night.";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label13.Location = new System.Drawing.Point(514, 240);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(274, 21);
-            label13.TabIndex = 12;
-            label13.Text = "#5: Do not destroy the rooms\' paint.";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            label14.Location = new System.Drawing.Point(514, 271);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(266, 21);
-            label14.TabIndex = 13;
-            label14.Text = "#6: Clean the kitchen after yourself.";
             // 
             // MainForm
             // 
@@ -488,8 +488,8 @@
             this.tpSelf.PerformLayout();
             this.tpAdmin.ResumeLayout(false);
             this.tpAdmin.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.RulesPage.ResumeLayout(false);
+            this.RulesPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -515,6 +515,6 @@
         private FlowLayoutPanel flpMyTasks;
         private FlowLayoutPanel flpAnnouncements;
         private Button btnAnnounce;
-        private TabPage tabPage1;
+        private TabPage RulesPage;
     }
 }
