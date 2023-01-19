@@ -32,7 +32,8 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
         {
             InitializeComponent();
         }
-        public TaskControl(TennantTask task) {
+        public TaskControl(TennantTask task)
+        {
             InitializeComponent();
             UpdateUsingObject = task;
         }

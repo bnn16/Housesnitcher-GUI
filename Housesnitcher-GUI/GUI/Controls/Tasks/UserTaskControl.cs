@@ -1,6 +1,5 @@
 ﻿using Housesnitcher_GUI.DataHandling;
 using Housesnitcher_GUI.Models;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Housesnitcher_GUI.GUI.Controls.Tasks
 {
@@ -14,14 +13,15 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
             {
                 TaskControlView.UpdateUsingObject = value;
                 ActivateButtonTask();
-            }   
+            }
         }
         public UserTaskControl(string user)
         {
             InitializeComponent();
             this._user = user;
         }
-        public UserTaskControl(TennantTask task) {
+        public UserTaskControl(TennantTask task)
+        {
             InitializeComponent();
             UpdateUsingObject = task;
         }
@@ -67,7 +67,7 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
             }
         }
 
-            private void btnComplete_Click(object sender, EventArgs e)
+        private void btnComplete_Click(object sender, EventArgs e)
         {
             var ret = TennantTaskHandler.CompleteTask(TaskControlView.StoredTask);
 
