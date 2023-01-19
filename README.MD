@@ -8,8 +8,8 @@
     - .env (with the DB connection and stuff)
     - Housesnithcer/bin/release/net7.0-windows/housesnitcher.exe
   - in the `.env` file you need the following vars:
-    - DATABASES__SQLSERVER__CONNECTIONSTRING=DatabaseName
-    - DATABASES__SQLSERVER__DATASOURCE=DatabaseSource
+    - `DATABASES__SQLSERVER__CONNECTIONSTRING=DatabaseName`
+    - `DATABASES__SQLSERVER__DATASOURCE=DatabaseSource`
   - if you want to change the structure required for the .env parsing, you can head to `Program.cs` and change the default .env parsing path.
   - you can find the migrations in the `Housesnitcher-GUI/migrations` folder
 
