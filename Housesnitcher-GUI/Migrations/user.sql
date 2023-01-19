@@ -1,4 +1,6 @@
-create table users(
-username varchar(250) primary key not null,
-pass varchar(250) not null
+
+CREATE TABLE users (
+username VARCHAR(50) PRIMARY KEY,
+pass VARCHAR(400),
+permission int NOT NULL
 )
