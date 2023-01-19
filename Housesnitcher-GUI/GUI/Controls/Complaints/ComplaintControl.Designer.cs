@@ -68,6 +68,7 @@
             this.rtbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbDescription.Location = new System.Drawing.Point(0, 55);
             this.rtbDescription.Name = "rtbDescription";
+            this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(300, 96);
             this.rtbDescription.TabIndex = 3;
             this.rtbDescription.Text = "ComplaintRtbDescription";
