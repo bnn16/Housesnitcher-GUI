@@ -48,7 +48,7 @@ namespace Housesnitcher_GUI.DataHandling
                     {
                         command.Parameters.AddWithValue("@username", user.Username);
                         command.Parameters.AddWithValue("@pass", user.Password);
-                        command.Parameters.AddWithValue("@perm", user.AuthLevel);
+                        command.Parameters.AddWithValue("@perm", (int)user.AuthLevel);
                         command.ExecuteNonQuery();
 
                     }
@@ -82,23 +82,26 @@ namespace Housesnitcher_GUI.DataHandling
         {
             try
             {
-                string query = "Select * from users where username = @username and pass = @pass";
+                string query = "Select * from users where username = @username";
 
                 using SqlConnection connection = new SqlConnection(_connection);
                 connection.Open();
                 using SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@pass", password);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    var user = new User(reader["username"].ToString(), reader["password"].ToString(), Convert.ToInt32(reader["permission"].ToString()));
-                    return user;
-                }
-                else
-                {
-                    return null;
+                    reader.Read();
+                    if (BCrypt.Net.BCrypt.Verify(password, reader["pass"].ToString()))
+                    {
+                        var user = new User(reader["username"].ToString(), reader["pass"].ToString(), Convert.ToInt32(reader["permission"].ToString()));
+                        return user;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
