@@ -57,7 +57,7 @@
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.TaskControlView);
             this.Name = "UserTaskControl";
-            this.Size = new System.Drawing.Size(385, 197);
+            this.Size = new System.Drawing.Size(379, 197);
             this.ResumeLayout(false);
 
         }
