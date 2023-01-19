@@ -47,7 +47,7 @@ namespace Housesnitcher_GUI
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint9", "test description #9", "Test", "Laundry", ComplaintStatus.Failed, null, DateTime.UnixEpoch));
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint10", "test description #10", "Test", "Laundry", ComplaintStatus.Resolved, "Some test feedback.", DateTime.UnixEpoch));
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint11", "test description #11", "Test", "Laundry", ComplaintStatus.Reviewed, null, DateTime.UnixEpoch));
-            Application.Run(new MainForm(user));
+            Application.Run(new LoginForm());
         }
     }
 }
