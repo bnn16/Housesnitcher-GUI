@@ -1,5 +1,4 @@
 using Housesnitcher_GUI.DataHandling;
-using Housesnitcher_GUI.DataStorageAbstractions;
 using Housesnitcher_GUI.GUI.Forms;
 using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
@@ -24,12 +23,11 @@ namespace Housesnitcher_GUI
             var dotenv = Path.Combine(root, "..\\..\\..\\..\\");
             dotenv = Path.GetFullPath(Path.Combine(dotenv, ".env"));
             DotEnv.Load(dotenv);
-            State.ConnectionString = Environment.GetEnvironmentVariable("Group Project");
-            State.DataSource = Environment.GetEnvironmentVariable("MSI\\SQLEXPRESS");
+            //State.ConnectionString = Environment.GetEnvironmentVariable("Group Project");
+            //State.DataSource = Environment.GetEnvironmentVariable("MSI\\SQLEXPRESS");
 
             var user = new User("Admin", "admin");
             user.AuthLevel = ScopeLevel.Admin;
-            UserStore.Users.Add(user);
             State.complaintTypes.Add("Laundry");
             State.complaintTypes.Add("Noise");
             State.complaintTypes.Add("Trash");
@@ -37,7 +35,7 @@ namespace Housesnitcher_GUI
             State.complaintTypes.Add("Maintenance");
             State.complaintTypes.Add("Temperature");
             State.complaintTypes.Add("Kitchen");
-            UserHandler.CreateUser("Admin", "admin");
+            UserHandler.CreateUser(user);
 
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint2", "test description #2", "Test", "Laundry", null, DateTime.UnixEpoch));
             //ComplaintStore.Complaints.Add(new Complaint("testComplaint3", "test description #3", "Test", "Laundry", null, DateTime.UnixEpoch));
