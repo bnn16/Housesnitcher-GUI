@@ -57,7 +57,7 @@ namespace Housesnitcher_GUI.GUI.Forms
                 {
                     flpAdminTasks.Controls.Add(new AdminTaskControl() { UpdateUsingObject = task });
                 }
-                
+
                 foreach (var announcement in AnnouncementHandler.GetAnnouncements())
                 {
                     flpAnnouncements.Controls.Add(new AnnouncementControl(announcement));
@@ -90,16 +90,18 @@ namespace Housesnitcher_GUI.GUI.Forms
         {
             HomeTabControl.TabPages.Clear();
             HomeTabControl.TabPages.Add(tpHomepage);
-
-            if (_user.AuthLevel == ScopeLevel.None)
-            {
-                return;
-            }
             HomeTabControl.TabPages.Add(tpSelf);
             if (_user.AuthLevel == ScopeLevel.Admin)
             {
                 HomeTabControl.TabPages.Add(tpAdmin);
             }
+            if (_user.AuthLevel == ScopeLevel.None)
+            {
+                return;
+            }
+
+            // keep this here, rules page, pls dont move stuff around
+            HomeTabControl.TabPages.Add(tabPage1);
         }
 
         // logout button, duh.
