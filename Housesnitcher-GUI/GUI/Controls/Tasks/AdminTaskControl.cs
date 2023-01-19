@@ -32,12 +32,18 @@ namespace Housesnitcher_GUI.GUI.Controls.Tasks
         }
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            TennantTaskHandler.CompleteTask(taskControl1.StoredTask);
+            var ret = TennantTaskHandler.CompleteTask(taskControl1.StoredTask);
+            _ = ret ?? throw new NullReferenceException();
+            UpdateUsingObject = ret;
+
         }
 
         private void btnFail_Click(object sender, EventArgs e)
         {
-            TennantTaskHandler.FailTask(taskControl1.StoredTask);
+            var ret = TennantTaskHandler.FailTask(taskControl1.StoredTask);
+            _ = ret ?? throw new NullReferenceException();
+            UpdateUsingObject = ret;
+
         }
     }
 }

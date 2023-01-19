@@ -1,4 +1,4 @@
-﻿namespace Housesnitcher_GUI.Models
+namespace Housesnitcher_GUI.Models
 {
     public class Complaint
     {

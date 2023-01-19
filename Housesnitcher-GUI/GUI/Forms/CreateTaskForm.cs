@@ -1,4 +1,5 @@
 ﻿using Housesnitcher_GUI.DataHandling;
+using Housesnitcher_GUI.GUI.Events;
 using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
 
@@ -38,6 +39,12 @@ namespace Housesnitcher_GUI.GUI.Forms
             {
                 MessageBox.Show("Task created", "Success");
             }
+            ForceRefreshEvent.RaiseRefreshEvent(this, new EventArgs());
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

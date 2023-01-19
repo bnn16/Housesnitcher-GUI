@@ -24,6 +24,8 @@ namespace Housesnitcher_GUI.GUI.Forms
                 flowTasksHome.Controls.Clear();
                 flpAdminComplaints.Controls.Clear();
                 flpMyTasks.Controls.Clear();
+                flpAdminTasks.Controls.Clear();
+                flpAnnouncements.Controls.Clear();
 
                 // populate the homepage
                 foreach (var complaint in ComplaintHandler.AllComplaints().Take(10))

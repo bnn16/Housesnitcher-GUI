@@ -39,11 +39,12 @@
             this.cmbTasks = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(51, 284);
+            this.btnAddTask.Location = new System.Drawing.Point(127, 284);
             this.btnAddTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(82, 22);
@@ -144,12 +145,23 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Due Date";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(46, 283);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // CreateTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.ClientSize = new System.Drawing.Size(583, 338);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
@@ -183,5 +195,6 @@
         private ComboBox cmbTasks;
         private DateTimePicker dateTimePicker1;
         private Label label5;
+        private Button btnCancel;
     }
 }

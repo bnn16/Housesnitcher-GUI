@@ -1,4 +1,5 @@
 ﻿using Housesnitcher_GUI.DataHandling;
+using Housesnitcher_GUI.GUI.Events;
 using Housesnitcher_GUI.Models;
 using Housesnitcher_GUI.StateManagement;
 
@@ -30,6 +31,7 @@ namespace Housesnitcher_GUI.GUI.Forms
             MessageBox.Show("Complaint Created!", "Success");
             tbTitle.Text = "";
             tbDescription.Text = "";
+            ForceRefreshEvent.RaiseRefreshEvent(this, new EventArgs());
         }
     }
 }

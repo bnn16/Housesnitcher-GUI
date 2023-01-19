@@ -1,5 +1,4 @@
-﻿using Housesnitcher_GUI.DataStorageAbstractions;
-using Housesnitcher_GUI.Models;
+﻿using Housesnitcher_GUI.Models;
 using System.Data.SqlClient;
 
 namespace Housesnitcher_GUI.DataHandling
@@ -53,8 +52,6 @@ namespace Housesnitcher_GUI.DataHandling
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            TennantTaskStore.tasks.Add(task);
-
             return task;
         }
 
@@ -68,13 +65,57 @@ namespace Housesnitcher_GUI.DataHandling
         }
         public static TennantTask? FailTask(TennantTask task)
         {
-            if (task.Status == Models.TennantTaskStatus.Failed)
+            using (var connection = new SqlConnection(_connection))
+            using (var command = connection.CreateCommand())
             {
+                connection.Open();
+                command.CommandText = "Update tasks set task_status = 2 where title = @Title and task_description = @Description and username = @Username and task_type = @Type";
+                command.Parameters.AddWithValue("@Title", task.Title);
+                command.Parameters.AddWithValue("@Description", task.Description);
+                command.Parameters.AddWithValue("@Username", task.Username);
+                command.Parameters.AddWithValue("@Type", task.Type);
+                var rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected == 1)
+                {
+                    command.CommandText = "SELECT * FROM tasks WHERE title = @Title AND task_description = @Description " +
+                                          "AND username = @Username AND task_type = @Type";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string Title = reader["title"].ToString();
+                            string ComplaintDescription = reader["task_description"].ToString();
+                            string Username = reader["username"].ToString();
+                            string ComplaintType = reader["task_type"].ToString();
+                            TennantTaskStatus Status;
+                            if (reader.IsDBNull(reader.GetOrdinal("task_status")))
+                            {
+                                Status = TennantTaskStatus.Assigned;
+                            }
+                            else if ((int)reader["task_status"] == 0)
+                            {
+                                Status = TennantTaskStatus.Assigned;
+                            }
+                            else if ((int)reader["task_status"] == 1)
+                            {
+                                Status = TennantTaskStatus.Completed;
+                            }
+                            else if ((int)reader["task_status"] == 2)
+                            {
+                                Status = TennantTaskStatus.Failed;
+                            }
+                            else
+                            {
+                                Status = TennantTaskStatus.Failed;
+                            }
+                            DateTime DateHappened = DateTime.Parse(reader["dateCreated"].ToString());
+                            DateTime dateDue = DateTime.Parse(reader["dateDue"].ToString());
+                            return new TennantTask(Title, ComplaintDescription, Username, ComplaintType, Status, dateDue, DateHappened);
+                        }
+                    }
+                }
                 return null;
             }
-            var idx = TennantTaskStore.tasks.FindIndex(x => x == task);
-            TennantTaskStore.tasks[idx].Status = Models.TennantTaskStatus.Failed;
-            return TennantTaskStore.tasks[idx];
         }
         private static TennantTask? BumpStatus(Models.TennantTask task)
         {
