@@ -47,27 +47,27 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(25, 209);
+            label4.Location = new System.Drawing.Point(22, 157);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(88, 20);
+            label4.Size = new System.Drawing.Size(70, 15);
             label4.TabIndex = 47;
             label4.Text = "Description:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(17, 173);
+            label2.Location = new System.Drawing.Point(15, 130);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(115, 20);
+            label2.Size = new System.Drawing.Size(90, 15);
             label2.TabIndex = 45;
             label2.Text = "Date happened:";
             // 
             // shitLabel
             // 
             shitLabel.AutoSize = true;
-            shitLabel.Location = new System.Drawing.Point(83, 61);
+            shitLabel.Location = new System.Drawing.Point(73, 46);
             shitLabel.Name = "shitLabel";
-            shitLabel.Size = new System.Drawing.Size(41, 20);
+            shitLabel.Size = new System.Drawing.Size(32, 15);
             shitLabel.TabIndex = 44;
             shitLabel.Text = "Title:";
             // 
@@ -75,9 +75,9 @@
             // 
             this.labeluser.AutoSize = true;
             this.labeluser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.labeluser.Location = new System.Drawing.Point(383, 9);
+            this.labeluser.Location = new System.Drawing.Point(335, 7);
             this.labeluser.Name = "labeluser";
-            this.labeluser.Size = new System.Drawing.Size(0, 20);
+            this.labeluser.Size = new System.Drawing.Size(0, 15);
             this.labeluser.TabIndex = 8;
             // 
             // cbType
@@ -85,19 +85,17 @@
             this.cbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(124, 113);
-            this.cbType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbType.Location = new System.Drawing.Point(108, 85);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(266, 28);
+            this.cbType.Size = new System.Drawing.Size(233, 23);
             this.cbType.TabIndex = 50;
             // 
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(137, 494);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(120, 370);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 31);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 49;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -106,10 +104,9 @@
             // 
             this.btnCreateComplaint.AutoSize = true;
             this.btnCreateComplaint.ForeColor = System.Drawing.Color.Black;
-            this.btnCreateComplaint.Location = new System.Drawing.Point(229, 491);
-            this.btnCreateComplaint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCreateComplaint.Location = new System.Drawing.Point(200, 368);
             this.btnCreateComplaint.Name = "btnCreateComplaint";
-            this.btnCreateComplaint.Size = new System.Drawing.Size(154, 40);
+            this.btnCreateComplaint.Size = new System.Drawing.Size(135, 30);
             this.btnCreateComplaint.TabIndex = 48;
             this.btnCreateComplaint.Text = "Create Complaint";
             this.btnCreateComplaint.UseVisualStyleBackColor = true;
@@ -119,54 +116,53 @@
             // 
             this.dtHappened.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.dtHappened.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.dtHappened.Location = new System.Drawing.Point(124, 165);
-            this.dtHappened.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtHappened.Location = new System.Drawing.Point(108, 124);
             this.dtHappened.Name = "dtHappened";
-            this.dtHappened.Size = new System.Drawing.Size(266, 27);
+            this.dtHappened.Size = new System.Drawing.Size(233, 23);
             this.dtHappened.TabIndex = 46;
             // 
             // tbDescription
             // 
-            this.tbDescription.BackColor = System.Drawing.Color.Silver;
+            this.tbDescription.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.tbDescription.Location = new System.Drawing.Point(124, 209);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.tbDescription.Location = new System.Drawing.Point(108, 157);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.PlaceholderText = "a small description of what your problem is";
-            this.tbDescription.Size = new System.Drawing.Size(266, 231);
+            this.tbDescription.Size = new System.Drawing.Size(233, 174);
             this.tbDescription.TabIndex = 43;
             // 
             // tbTitle
             // 
-            this.tbTitle.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tbTitle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbTitle.Location = new System.Drawing.Point(124, 61);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.tbTitle.Location = new System.Drawing.Point(108, 46);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.PlaceholderText = "A quick title for what your problem is";
-            this.tbTitle.Size = new System.Drawing.Size(266, 43);
+            this.tbTitle.Size = new System.Drawing.Size(233, 32);
             this.tbTitle.TabIndex = 42;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.label13.Location = new System.Drawing.Point(81, 117);
+            this.label13.Location = new System.Drawing.Point(71, 88);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 20);
+            this.label13.Size = new System.Drawing.Size(34, 15);
             this.label13.TabIndex = 41;
             this.label13.Text = "Type:";
             // 
             // CreateComplaintForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
-            this.ClientSize = new System.Drawing.Size(488, 589);
+            this.ClientSize = new System.Drawing.Size(427, 442);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreateComplaint);
@@ -179,6 +175,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.labeluser);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateComplaintForm";
             this.Text = "Create Complaint";
             this.ResumeLayout(false);

@@ -34,8 +34,11 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label7;
             this.HomeTabControl = new System.Windows.Forms.TabControl();
             this.tpHomepage = new System.Windows.Forms.TabPage();
+            this.btnAnnounce = new System.Windows.Forms.Button();
+            this.flpAnnouncements = new System.Windows.Forms.FlowLayoutPanel();
             this.flowTasksHome = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblUserData = new System.Windows.Forms.Label();
@@ -46,7 +49,7 @@
             this.flpInShort = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLodgeComplaint = new System.Windows.Forms.Button();
             this.tpAdmin = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpAdminTasks = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCreateTask = new System.Windows.Forms.Button();
             this.flpAdminComplaints = new System.Windows.Forms.FlowLayoutPanel();
             this.pLodgeComplaint = new System.Windows.Forms.Panel();
@@ -56,6 +59,7 @@
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
             this.HomeTabControl.SuspendLayout();
             this.tpHomepage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -125,6 +129,16 @@
             label4.TabIndex = 6;
             label4.Text = "Tasks:";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(748, 65);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(181, 21);
+            label7.TabIndex = 7;
+            label7.Text = "Last 10 Announcements";
+            // 
             // HomeTabControl
             // 
             this.HomeTabControl.Controls.Add(this.tpHomepage);
@@ -141,6 +155,9 @@
             // tpHomepage
             // 
             this.tpHomepage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.tpHomepage.Controls.Add(this.btnAnnounce);
+            this.tpHomepage.Controls.Add(label7);
+            this.tpHomepage.Controls.Add(this.flpAnnouncements);
             this.tpHomepage.Controls.Add(this.flowTasksHome);
             this.tpHomepage.Controls.Add(label6);
             this.tpHomepage.Controls.Add(this.tableLayoutPanel1);
@@ -154,15 +171,39 @@
             this.tpHomepage.TabIndex = 0;
             this.tpHomepage.Text = "Homepage";
             // 
+            // btnAnnounce
+            // 
+            this.btnAnnounce.AutoSize = true;
+            this.btnAnnounce.ForeColor = System.Drawing.Color.Black;
+            this.btnAnnounce.Location = new System.Drawing.Point(758, 26);
+            this.btnAnnounce.Name = "btnAnnounce";
+            this.btnAnnounce.Size = new System.Drawing.Size(75, 25);
+            this.btnAnnounce.TabIndex = 8;
+            this.btnAnnounce.Text = "Announce";
+            this.btnAnnounce.UseVisualStyleBackColor = true;
+            this.btnAnnounce.Click += new System.EventHandler(this.btnAnnounce_Click);
+            // 
+            // flpAnnouncements
+            // 
+            this.flpAnnouncements.AutoScroll = true;
+            this.flpAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.flpAnnouncements.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAnnouncements.ForeColor = System.Drawing.Color.Black;
+            this.flpAnnouncements.Location = new System.Drawing.Point(748, 94);
+            this.flpAnnouncements.Name = "flpAnnouncements";
+            this.flpAnnouncements.Size = new System.Drawing.Size(305, 477);
+            this.flpAnnouncements.TabIndex = 6;
+            this.flpAnnouncements.WrapContents = false;
+            // 
             // flowTasksHome
             // 
             this.flowTasksHome.AutoScroll = true;
             this.flowTasksHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.flowTasksHome.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowTasksHome.ForeColor = System.Drawing.Color.Black;
-            this.flowTasksHome.Location = new System.Drawing.Point(475, 94);
+            this.flowTasksHome.Location = new System.Drawing.Point(380, 94);
             this.flowTasksHome.Name = "flowTasksHome";
-            this.flowTasksHome.Size = new System.Drawing.Size(323, 476);
+            this.flowTasksHome.Size = new System.Drawing.Size(323, 477);
             this.flowTasksHome.TabIndex = 5;
             this.flowTasksHome.WrapContents = false;
             // 
@@ -197,7 +238,7 @@
             this.flpComplaintsHome.ForeColor = System.Drawing.Color.Black;
             this.flpComplaintsHome.Location = new System.Drawing.Point(19, 94);
             this.flpComplaintsHome.Name = "flpComplaintsHome";
-            this.flpComplaintsHome.Size = new System.Drawing.Size(307, 477);
+            this.flpComplaintsHome.Size = new System.Drawing.Size(324, 477);
             this.flpComplaintsHome.TabIndex = 2;
             this.flpComplaintsHome.WrapContents = false;
             // 
@@ -225,7 +266,7 @@
             this.flpMyTasks.ForeColor = System.Drawing.Color.Black;
             this.flpMyTasks.Location = new System.Drawing.Point(340, 80);
             this.flpMyTasks.Name = "flpMyTasks";
-            this.flpMyTasks.Size = new System.Drawing.Size(300, 488);
+            this.flpMyTasks.Size = new System.Drawing.Size(406, 488);
             this.flpMyTasks.TabIndex = 10;
             // 
             // btnLogout
@@ -266,7 +307,7 @@
             this.tpAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.tpAdmin.Controls.Add(label4);
             this.tpAdmin.Controls.Add(label2);
-            this.tpAdmin.Controls.Add(this.flowLayoutPanel1);
+            this.tpAdmin.Controls.Add(this.flpAdminTasks);
             this.tpAdmin.Controls.Add(this.btnCreateTask);
             this.tpAdmin.Controls.Add(this.flpAdminComplaints);
             this.tpAdmin.Location = new System.Drawing.Point(4, 24);
@@ -276,17 +317,17 @@
             this.tpAdmin.TabIndex = 2;
             this.tpAdmin.Text = "Administration";
             // 
-            // flowLayoutPanel1
+            // flpAdminTasks
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(450, 44);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(357, 357);
-            this.flowLayoutPanel1.TabIndex = 4;
-            this.flowLayoutPanel1.WrapContents = false;
+            this.flpAdminTasks.AutoScroll = true;
+            this.flpAdminTasks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.flpAdminTasks.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAdminTasks.Location = new System.Drawing.Point(450, 44);
+            this.flpAdminTasks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpAdminTasks.Name = "flpAdminTasks";
+            this.flpAdminTasks.Size = new System.Drawing.Size(406, 357);
+            this.flpAdminTasks.TabIndex = 4;
+            this.flpAdminTasks.WrapContents = false;
             // 
             // btnCreateTask
             // 
@@ -355,9 +396,11 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label lblUserData;
         private FlowLayoutPanel flpAdminComplaints;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flpAdminTasks;
         private Button btnCreateTask;
         private Label label4;
         private FlowLayoutPanel flpMyTasks;
+        private FlowLayoutPanel flpAnnouncements;
+        private Button btnAnnounce;
     }
 }
