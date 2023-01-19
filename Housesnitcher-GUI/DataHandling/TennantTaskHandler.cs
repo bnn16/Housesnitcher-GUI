@@ -6,16 +6,16 @@ namespace Housesnitcher_GUI.DataHandling
 {
     public static class TennantTaskHandler
     {
-        private static readonly string _connection = $"data source =MSI\\SQLEXPRESS; database=Group Project; integrated security=SSPI";
+        private static readonly string _connection = $"data source = {StateManagement.State.DataSource}; database={StateManagement.State.ConnectionString}; integrated security=SSPI";
         public static TennantTask? AssignTask(TennantTask task)
         {
             using (SqlConnection connection = new SqlConnection(_connection))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("select count(*) from tasks where title = @title and task_description = @task_desc and username = @username and task_type = @task_type", connection))
+                using (SqlCommand command = new SqlCommand("select count(*) from tasks where title = @title and task_description = @task_description and username = @username and task_type = @task_type", connection))
                 {
                     command.Parameters.AddWithValue("@title", task.Title);
-                    command.Parameters.AddWithValue("@task_desc", task.Description);
+                    command.Parameters.AddWithValue("@task_description", task.Description);
                     command.Parameters.AddWithValue("@username", task.Username);
                     command.Parameters.AddWithValue("@task_type", task.Type);
                     int TaskExists = (int)command.ExecuteScalar();
@@ -26,40 +26,38 @@ namespace Housesnitcher_GUI.DataHandling
                         return null;
 
                     }
-
                 }
                 connection.Close();
             }
-
-                try
+            try
+            {
+                string query = "Insert into tasks (title, task_description, username, task_type, task_status, dateDue, dateCreated) values (@title, @task_description, @username, @task_type, @task_status, @dateDue, @dateCreated)";
+                using (SqlConnection connection = new SqlConnection(_connection))
                 {
-                    string query = "Insert into tasks (title, task_description, username, task_type, task_status, dateDue, dateCreated) values (@title, @desc, @username, @task_type, @task_status, @dateDue, @dateCreated)";
-                    using (SqlConnection connection = new SqlConnection(_connection))
+
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@title", task.Title);
+                        command.Parameters.AddWithValue("@task_description", task.Description);
+                        command.Parameters.AddWithValue("@username", task.Username);
+                        command.Parameters.AddWithValue("@task_type", task.Type);
+                        command.Parameters.AddWithValue("@dateDue", task.DateDue);
+                        command.Parameters.AddWithValue("@dateCreated", task.DateCreated);
+                        command.Parameters.AddWithValue("@task_status", task.Status);
+                        command.ExecuteNonQuery();
 
-                        connection.Open();
-
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@title", task.Title);
-                            command.Parameters.AddWithValue("@desc", task.Description);
-                            command.Parameters.AddWithValue("@username", task.Username);
-                            command.Parameters.AddWithValue("@task_type", task.Type);
-                            command.Parameters.AddWithValue("@dateDue", task.DateDue);
-                            command.Parameters.AddWithValue("@dateCreated", task.DateCreated);
-                            command.Parameters.AddWithValue("@task_status", task.Status);
-                            command.ExecuteNonQuery();
-
-                        }
-                        connection.Close();
                     }
+                    connection.Close();
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-                TennantTaskStore.tasks.Add(task);
-
-                return task;
             }
-        
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            TennantTaskStore.tasks.Add(task);
+
+            return task;
+        }
+
         public static TennantTask? CompleteTask(TennantTask task)
         {
             if (task.Status != TennantTaskStatus.Assigned)
@@ -152,8 +150,8 @@ namespace Housesnitcher_GUI.DataHandling
                         string task_desc = (string)reader["task_description"];
                         string user = (string)reader["username"];
                         string taskType = (string)reader["task_type"];
-                        DateTime dateDue = (DateTime)reader["dateDue"];
-                        DateTime dateCreated = (DateTime)reader["dateCreated"];
+                        DateTime dateDue = Convert.ToDateTime(reader["DateDue"]);
+                        DateTime dateCreated = Convert.ToDateTime(reader["dateCreated"]);
                         TennantTask t = new TennantTask(title, task_desc, user, taskType, dateDue);
 
                         if (reader.IsDBNull(reader.GetOrdinal("task_status")))
