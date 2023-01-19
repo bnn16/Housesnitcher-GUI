@@ -12,6 +12,16 @@
             Password = BCrypt.Net.BCrypt.HashPassword(password);
             AuthLevel = ScopeLevel.User;
         }
+        // use this only when you already have created a user
+        public User(string username, string password, int authLevel)
+        {
+            Username = username;
+            Password = password;
+            AuthLevel = (ScopeLevel)authLevel;
+        }
+
+        // do not delete this
+        public User() { }
 
         public override string ToString()
         {
