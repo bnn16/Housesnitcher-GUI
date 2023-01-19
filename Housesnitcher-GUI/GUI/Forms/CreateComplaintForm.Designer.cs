@@ -47,7 +47,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(22, 157);
+            label4.Location = new System.Drawing.Point(35, 157);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(70, 15);
             label4.TabIndex = 47;
@@ -127,7 +127,7 @@
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.tbDescription.Location = new System.Drawing.Point(108, 157);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(7);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.PlaceholderText = "a small description of what your problem is";
@@ -139,7 +139,7 @@
             this.tbTitle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTitle.Location = new System.Drawing.Point(108, 46);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(7);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.PlaceholderText = "A quick title for what your problem is";
